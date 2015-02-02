@@ -1,0 +1,11 @@
+{
+  "generator-angular-famous-ionic": {
+    "appname": "michio",
+    "clientFolder": "src",
+    "ionic": false,
+    "famous": true,
+    "ngCordova": false,
+    "fontawesome": true,
+    "bootstrap": true
+  }
+}
