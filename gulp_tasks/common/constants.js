@@ -33,7 +33,7 @@ module.exports = function() {
       './server/**/*.js', 'gulpfile.js', './gulp_tasks/**/*.js', 'karma.conf.js', './test/**/*.js'
     ],
     fonts: {
-      src: ['./' + clientFolder + '/fonts/*.*', './' + clientFolder + '/fonts/{{targetName}}/**/*.*', './bower_components/font-awesome/fonts/*.*', './bower_components/bootstrap/dist/fonts/*.*'], // you can also add a specific src_appname
+      src: ['./' + clientFolder + '/fonts/*.*', './' + clientFolder + '/fonts/{{targetName}}/**/*.*', './bower_components/font-awesome/fonts/*.*', './bower_components/bootstrap/dist/fonts/*.*', './bower_components/mdi/fonts/*.*'], // you can also add a specific src_appname
       dest: 'fonts'
     },
     html: {
@@ -56,7 +56,7 @@ module.exports = function() {
         src: ['./' + clientFolder + '/styles/main{{targetSuffix}}.scss']
       },
       css: {
-        src: ['./bower_components/famous-angular/dist/famous-angular.css', './bower_components/bootstrap/dist/css/bootstrap.css', './bower_components/bootstrap/dist/css/bootstrap-theme.css', './bower_components/angular-material/angular-material.css', './bower_components/angular-material/default-theme.css', './bower_components/angular-material/modules/css/angular-material-layout.css'] // you can also add a specific src_appname
+        src: ['./bower_components/famous-angular/dist/famous-angular.css', './bower_components/bootstrap/dist/css/bootstrap.css', './bower_components/bootstrap/dist/css/bootstrap-theme.css', './bower_components/angular-material/angular-material.css', './bower_components/angular-material/default-theme.css', './bower_components/angular-material/modules/css/angular-material-layout.css', './bower_components/mdi/materialdesignicons.css'] // you can also add a specific src_appname
       }
     },
 

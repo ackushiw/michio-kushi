@@ -20,12 +20,49 @@
 .panel-title a {
   cursor: pointer;
 }
+//fonts
+//mdi
+.mdi-lg {
+  font-size: 16pt;
+}
+.mdi-2x {
+  font-size: 24pt;
+}
+.mdi-bold {
+  font-weight: bold;
+}
 //nav
 section#nav {
   padding: 16px;
   #options {
     margin: 0 10px 0 16px;
     padding: 4px;
+  }
+  #filters {
+    margin: 0 0 0 16px;
+    padding: 4px;
+  }
+}
+section#filter-menu {
+  md-content {
+    span.md-subheader-content {
+      i {
+        margin-right: 16px;
+      }
+    }
+    md-list {
+      md-item {
+        i {
+          margin-right: 16px;
+        }
+        button.md-button {
+          margin-right: 16px;
+          i {
+            margin-right: 0;
+          }
+        }
+      }
+    }
   }
 }
 button.side-nav {
