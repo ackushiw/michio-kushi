@@ -1,23 +1,82 @@
-
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
-
 .full-screen {
-    position: fixed;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
 }
-
 .full-height,
 .full-height .fa-surface {
-    height: 100%
+  height: 100%;
 }
-
 .full-width,
 .full-width .fa-surface {
-    width: 100%
+  width: 100%;
 }
-
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-    
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+//nav
+section#nav {
+  padding: 16px;
+  #options {
+    margin: 0 10px 0 16px;
+    padding: 4px;
+  }
+}
+button.side-nav {
+  img,
+  h3 {
+    opacity: 0.6;
+  }
+  h3 {
+    margin-left: 16px;
+  }
+}
+//search input
+#search {
+  padding: 2px;
+  //margin: 16px;
+  border-radius: 2px;
+  md-input-container {
+    padding: 0;
+    input {
+      //background-image: url("../images/app/magnify.png");
+      background-repeat: no-repeat;
+      //opacity: 0.8;
+    }
+  }
+  md-input-container.md-input-has-value {
+    background-color: #ddd;
+    input {
+      background-image: none;
+    }
+  }
+}
+#search.expanded {
+  background-color: white;
+}
+//options menu
+#options-menu {
+  md-card {
+    md-content {
+      padding: 16px;
+      div {
+        top: -32px;
+        padding: 0 3px;
+      }
+      h3 {
+        margin-top: 0;
+        padding-top: 6px;
+      }
+      button.md-button {
+        //top: -12px;
+        padding: 6px;
+      }
+    }
+  }
+}

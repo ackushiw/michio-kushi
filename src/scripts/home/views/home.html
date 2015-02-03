@@ -1,0 +1,159 @@
+<fa-app class="full-screen">
+
+  <fa-modifier fa-translate="menuPos(optionsMenuPos.get())" fa-origin="[1, 0]" fa-align="[1, 0]" fa-size="menuSize(optionsMenuSize.get())">
+    <fa-surface>
+      <section id="options-menu">
+        <md-card>
+          <md-content class="md-padding">
+            <div layout="row" layout-align="space-between start">
+              <div>
+                <h3>More</h3>
+              </div>
+              <div>
+                <md-button aria-label="options-close" ng-click="homeCtrl.toggleOptions()"><i class="fa fa-ellipsis-v fa-lg"></i>
+              </div>
+
+              </md-button>
+            </div>
+            <md-list>
+              <md-item>
+                <p>test</p>
+              </md-item>
+              <md-item>
+                <p>test</p>
+              </md-item>
+              <md-item>
+                <p>{{homeCtrl.optionsMenu}}</p>
+              </md-item>
+              <md-item>
+                <p>test</p>
+              </md-item>
+              <md-item>
+                <p>test</p>
+              </md-item>
+            </md-list>
+          </md-content>
+        </md-card>
+      </section>
+    </fa-surface>
+  </fa-modifier>
+  <fa-modifier fa-translate="[16,16,0]">
+    <fa-grid-layout fa-options="myGridLayoutOptions">
+      <fa-modifier fa-translate="[0,0,51]" fa-size="[100, 100]" fa-opacity="flowerOpacity.get()">
+        <fa-image-surface fa-image-url="images/app/kushi.png" class="logo-image" fa-size="[100,100]"></fa-image-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100, 100]">
+        <fa-surface fa-size="[100,100]">
+          </surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+          <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
+            <img src="images/app/file-image-box.png" alt="Images">
+            <h3 hide-sm hide-md>Images</h3>
+          </md-button>
+        </fa-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+          <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
+            <img src="images/app/youtube-play.png" alt="Video">
+            <h3 hide-sm hide-md>Videos</h3>
+          </md-button>
+        </fa-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+          <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
+            <img src="images/app/library-books.png" alt="Storys">
+            <h3 hide-sm hide-md>Stories</h3>
+          </md-button>
+        </fa-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+          <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
+            <img src="images/app/newspaper.png" alt="Articles">
+            <h3 hide-sm hide-md>Articles</h3>
+          </md-button>
+        </fa-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+          <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
+            <img src="images/app/map-marker.png" alt="Places">
+            <h3 hide-sm hide-md>Places</h3>
+          </md-button>
+        </fa-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+          <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
+            <img src="images/app/comment-text-outline.png" alt="Quotes">
+            <h3 hide-sm hide-md>Quotes</h3>
+          </md-button>
+        </fa-surface>
+      </fa-modifier>
+      <fa-modifier fa-size="[100,100]">
+        <fa-surface>
+
+        </fa-surface>
+      </fa-modifier>
+
+    </fa-grid-layout>
+
+  </fa-modifier>
+  <fa-modifier fa-translate="[0,72,50]" fa-size="[undifined, 72]">
+    <fa-surface fa-background-color="'red'">
+      <section layout="row">
+        <md-content class="md-padding" layout-fill layout="row">
+          <span flex="30"></span>
+          <md-list layout="row" layout-align="start center" flex>
+            <md-item>Michio</md-item>
+            <md-item>Becket</md-item>
+            <md-item>Erewhon</md-item>
+            <md-item>Avaline</md-item>
+            <md-item>test</md-item>
+            <md-item>test</md-item>
+            <md-item>test</md-item>
+            <md-item>test</md-item>
+            <md-item>test</md-item>
+          </md-list>
+        </md-content>
+      </section>
+    </fa-surface>
+  </fa-modifier>
+  <fa-modifer fa-translate="[0,0,100]">
+    <fa-view>
+      <fa-modifier>
+        <fa-surface>
+          <section id="nav" layout="row" layout-align="end center">
+            <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+              <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()"><i class="fa fa-search fa-lg"></i>
+              </md-button>
+              <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
+
+                <input type="text" ng-model="search" flex>
+
+              </md-input-container>
+              <div ng-if="homeCtrl.searchFocus" hide>
+                <md-button aria-label="clear"><i class="fa fa-close"></i>
+                </md-button>
+              </div>
+            </div>
+            <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+              <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="fa fa-ellipsis-v fa-lg"></i>
+              </md-button>
+            </div>
+          </section>
+        </fa-surface>
+      </fa-modifier>
+    </fa-view>
+  </fa-modifer>
+  <fa-modifier>
+    <fa-scroll-view>
+      <ui-view></ui-view>
+    </fa-scroll-view>
+
+  </fa-modifier>
+</fa-app>
