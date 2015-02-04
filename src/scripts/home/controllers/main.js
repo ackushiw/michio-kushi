@@ -4,12 +4,23 @@ var controllername = 'main';
 module.exports = function(app) {
   /*jshint validthis: true */
 
-  var deps = ['$scope', '$famous', '$timeline'];
+  var deps = ['$scope', '$famous', '$timeline', '$document'];
 
-  function controller($scope, $famous, $timeline) {
+  function controller($scope, $famous, $timeline, $document) {
     var vm = this;
     var Transitionable = $famous['famous/transitions/Transitionable'];
     var Easing = $famous['famous/transitions/Easing'];
+    var Masonry = require('masonry-layout');
+
+    vm.initMsnry = function() {
+      console.log('init test');
+      var container = document.querySelector('.msnry-test');
+      console.log(container);
+      vm.msnry = new Masonry(container, {
+        columnWidth: '.item',
+        itemSelector: '.item'
+      });
+    };
 
     //famous layout
     $scope.myGridLayoutOptions = {
@@ -27,7 +38,7 @@ module.exports = function(app) {
     //menu
     $scope.menuPos = $timeline([
       [0, [0, 0, 101], Easing.inOutQuad],
-      [1, [0, 0, 101]]
+      [1, [0, 0, 1000]]
     ]);
     $scope.menuSize = $timeline([
       [0, [0, 0], Easing.inOutQuad],
@@ -120,6 +131,17 @@ module.exports = function(app) {
     };
     vm.filterMenuLayoutOptions = {
       direction: 1
+    };
+
+    //feed
+    vm.feed = {
+      "feed1": "feed43",
+      "feed2": "feed",
+      "feed3": "feed2343",
+      "feed4": "feed23r443",
+      "feed5": "feedsdfd43",
+      "feed6": "feefsd43",
+      "feed7": "fested43"
     };
 
     var activate = function() {

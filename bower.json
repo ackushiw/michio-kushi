@@ -24,7 +24,8 @@
     "hammerjs": "~2.0.4",
     "mdi": "master",
     "ng-file-upload": "~2.2.2",
-    "ng-file-upload-shim": "~2.2.2"
+    "ng-file-upload-shim": "~2.2.2",
+    "angular-masonry-directive": "*"
   },
   "resolutions": {
     "angular": "1.3.x"

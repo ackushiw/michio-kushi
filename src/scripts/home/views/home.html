@@ -1,3 +1,30 @@
+<md-toolbar>
+  <section id="nav" class="md-toolbar-tools" layout="row" layout-align="end center">
+    <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+      <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()">
+        <i class="mdi mdi-magnify mdi-lg"></i>
+      </md-button>
+      <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
+
+        <input type="text" ng-model="search" flex>
+
+      </md-input-container>
+      <div ng-if="homeCtrl.searchFocus" hide>
+        <md-button aria-label="clear"><i class="mdi mdi-close"></i>
+        </md-button>
+      </div>
+    </div>
+    <div id="filters" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+      <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-lg"></i>
+      </md-button>
+    </div>
+    <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+      <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-lg"></i>
+      </md-button>
+    </div>
+  </section>
+</md-toolbar>
+
 <fa-app class="full-screen">
   <!-- Options Menu -->
   <fa-modifier fa-translate="menuPos(optionsMenuPos.get())" fa-origin="[1, 0]" fa-align="[1, 0]" fa-size="menuSize(optionsMenuSize.get())">
@@ -166,7 +193,8 @@
   </fa-modifier>
   <!-- Background -->
   <fa-modifier fa-translate="[0,0,1]" fa-size="[undefined, undefined]">
-    <fa-surface fa-background-color="'white'">
+    <fa-surface fa-background-color="'#37474F'">
+
     </fa-surface>
   </fa-modifier>
   <!-- Nav -->
@@ -174,40 +202,19 @@
     <fa-view>
       <fa-modifier fa-translate="[0,0,100]">
         <fa-surface>
-          <md-toolbar>
-            <section id="nav" class="md-toolbar-tools" layout="row" layout-align="end center">
-              <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-                <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()">
-                  <i class="mdi mdi-magnify mdi-lg"></i>
-                </md-button>
-                <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
 
-                  <input type="text" ng-model="search" flex>
-
-                </md-input-container>
-                <div ng-if="homeCtrl.searchFocus" hide>
-                  <md-button aria-label="clear"><i class="mdi mdi-close"></i>
-                  </md-button>
-                </div>
-              </div>
-              <div id="filters" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-                <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-lg"></i>
-                </md-button>
-              </div>
-              <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-                <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-lg"></i>
-                </md-button>
-              </div>
-            </section>
-          </md-toolbar>
         </fa-surface>
       </fa-modifier>
     </fa-view>
   </fa-modifer>
-  <fa-modifier>
-    <fa-scroll-view>
-      <ui-view></ui-view>
-    </fa-scroll-view>
-
-  </fa-modifier>
+  <!-- <fa-view>
+    <fa-modifier fa-translate="[0,0,20]">
+      <fa-surface>
+        <feed style="width:100%;height:100%;"></feed>
+      </fa-surface>
+    </fa-modifier>
+  </fa-view> -->
 </fa-app>
+<md-content class="main">
+  <feed class="feed"></feed>
+</md-content>
