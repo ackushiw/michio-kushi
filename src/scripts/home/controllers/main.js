@@ -26,7 +26,7 @@ module.exports = function(app) {
     //famous Animations
     //menu
     $scope.menuPos = $timeline([
-      [0, [0, 0, 50], Easing.inOutQuad],
+      [0, [0, 0, 101], Easing.inOutQuad],
       [1, [0, 0, 101]]
     ]);
     $scope.menuSize = $timeline([

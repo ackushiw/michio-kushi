@@ -101,7 +101,9 @@
     "angular-bootstrap": "./bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
     "angular-aria": "./bower_components/angular-aria/angular-aria.min.js",
     "hammerjs": "./bower_components/hammerjs/hammer.min.js",
-    "ngMaterial": "./bower_components/angular-material/angular-material.min.js"
+    "ngMaterial": "./bower_components/angular-material/angular-material.min.js",
+    "ngFileUpload-shim": "./bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js",
+    "ngFileUpload": "./bower_components/ng-file-upload/ng-file-upload.min.js"
   },
   "browserify": {
     "transform": [
@@ -162,6 +164,12 @@
         "angular",
         "ngAnimate",
         "angular-aria"
+      ]
+    },
+    "ngFileUpload": {
+      "exports": "ngFileUpload",
+      "depends": [
+        "angular"
       ]
     }
   }
