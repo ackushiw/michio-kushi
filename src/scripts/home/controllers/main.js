@@ -44,12 +44,12 @@ module.exports = function(app) {
     ]);
     //logo
     $scope.flowerSize = $timeline([
-      [0, [41, 41], Easing.inOutQuad],
+      [0, [48, 48], Easing.inOutQuad],
       [1, [100, 100]]
     ]);
     $scope.flowerPos = $timeline([
-      [0, [16, 16, 30], Easing.inOutQuad],
-      [1, [16, 22, 101]]
+      [0, [-24, 8, 101], Easing.inOutQuad],
+      [1, [16, 12, 101]]
     ]);
     $scope.flowerOpacity = $timeline([
       [0, 0.3, Easing.inOutQuad],

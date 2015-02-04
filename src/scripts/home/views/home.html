@@ -174,30 +174,32 @@
     <fa-view>
       <fa-modifier fa-translate="[0,0,100]">
         <fa-surface>
-          <section id="nav" layout="row" layout-align="end center">
-            <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-              <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()">
-                <i class="mdi mdi-magnify mdi-lg"></i>
-              </md-button>
-              <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
+          <md-toolbar>
+            <section id="nav" class="md-toolbar-tools" layout="row" layout-align="end center">
+              <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+                <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()">
+                  <i class="mdi mdi-magnify mdi-lg"></i>
+                </md-button>
+                <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
 
-                <input type="text" ng-model="search" flex>
+                  <input type="text" ng-model="search" flex>
 
-              </md-input-container>
-              <div ng-if="homeCtrl.searchFocus" hide>
-                <md-button aria-label="clear"><i class="mdi mdi-close"></i>
+                </md-input-container>
+                <div ng-if="homeCtrl.searchFocus" hide>
+                  <md-button aria-label="clear"><i class="mdi mdi-close"></i>
+                  </md-button>
+                </div>
+              </div>
+              <div id="filters" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+                <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-lg"></i>
                 </md-button>
               </div>
-            </div>
-            <div id="filters" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-              <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-lg"></i>
-              </md-button>
-            </div>
-            <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-              <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-lg"></i>
-              </md-button>
-            </div>
-          </section>
+              <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+                <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-lg"></i>
+                </md-button>
+              </div>
+            </section>
+          </md-toolbar>
         </fa-surface>
       </fa-modifier>
     </fa-view>

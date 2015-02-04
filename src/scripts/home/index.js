@@ -28,6 +28,11 @@ module.exports = function(namespace) {
       });
     }
   ]);
+  app.config(['$mdThemingProvider', function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('cyan')
+      .accentPalette('green');
+  }]);
 
   return app;
 };
