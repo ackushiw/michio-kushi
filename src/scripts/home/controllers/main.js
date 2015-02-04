@@ -19,9 +19,12 @@ module.exports = function(app) {
     $scope.optionsMenuPos = new Transitionable(0);
     $scope.filterMenuPos = new Transitionable(0);
     $scope.optionsMenuSize = new Transitionable(0);
-    $scope.flowerOpacity = new Transitionable(1);
+    $scope.flowerOpacityVal = new Transitionable(1);
+    $scope.flowerLogoSize = new Transitionable(1);
+    $scope.flowerLogoPos = new Transitionable(1);
 
     //famous Animations
+    //menu
     $scope.menuPos = $timeline([
       [0, [0, 0, 50], Easing.inOutQuad],
       [1, [0, 0, 101]]
@@ -30,7 +33,7 @@ module.exports = function(app) {
       [0, [0, 0], Easing.inOutQuad],
       [1, [200, 320]]
     ]);
-
+    //filters
     $scope.filterPos = $timeline([
       [0, [400, 0, 102], Easing.inOutQuad],
       [1, [0, 0, 102]]
@@ -39,6 +42,19 @@ module.exports = function(app) {
       [0, [0, 0], Easing.inOutQuad],
       [1, [300, undefined]]
     ]);
+    //logo
+    $scope.flowerSize = $timeline([
+      [0, [41, 41], Easing.inOutQuad],
+      [1, [100, 100]]
+    ]);
+    $scope.flowerPos = $timeline([
+      [0, [16, 16, 30], Easing.inOutQuad],
+      [1, [16, 22, 101]]
+    ]);
+    $scope.flowerOpacity = $timeline([
+      [0, 0.3, Easing.inOutQuad],
+      [1, 1]
+    ]);
 
     vm.searchFocus = false;
     vm.optionsMenu = false;
@@ -46,11 +62,27 @@ module.exports = function(app) {
     vm.toggleSearch = function() {
       if(!vm.searchFocus) {
         vm.searchFocus = true;
-        $scope.flowerOpacity = new Transitionable(0.3);
+        $scope.flowerOpacityVal.set(0, {
+          duration: 300
+        });
+        $scope.flowerLogoSize.set(0, {
+          duration: 300
+        });
+        $scope.flowerLogoPos.set(0, {
+          duration: 300
+        });
 
       } else {
         vm.searchFocus = false;
-        $scope.flowerOpacity = new Transitionable(1);
+        $scope.flowerOpacityVal.set(1, {
+          duration: 300
+        });
+        $scope.flowerLogoSize.set(1, {
+          duration: 300
+        });
+        $scope.flowerLogoPos.set(1, {
+          duration: 300
+        });
       }
     };
     vm.toggleFilters = function() {

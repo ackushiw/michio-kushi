@@ -1,5 +1,5 @@
 <fa-app class="full-screen">
-
+  <!-- Options Menu -->
   <fa-modifier fa-translate="menuPos(optionsMenuPos.get())" fa-origin="[1, 0]" fa-align="[1, 0]" fa-size="menuSize(optionsMenuSize.get())">
     <fa-surface>
       <section id="options-menu">
@@ -10,7 +10,7 @@
                 <h3>More</h3>
               </div>
               <div>
-                <md-button aria-label="options-close" ng-click="homeCtrl.toggleOptions()"><i class="fa fa-ellipsis-v fa-lg"></i>
+                <md-button aria-label="options-close" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-lg"></i>
               </div>
 
               </md-button>
@@ -38,9 +38,11 @@
       </section>
     </fa-surface>
   </fa-modifier>
-  <fa-modifier fa-translate="[16,16,51]" fa-size="[100, 100]" fa-opacity="flowerOpacity.get()">
-    <fa-image-surface fa-image-url="images/app/kushi.png" class="logo-image" fa-size="[100,100]"></fa-image-surface>
+  <!-- Logo -->
+  <fa-modifier fa-translate="flowerPos(flowerLogoPos.get())" fa-size="flowerSize(flowerLogoSize.get())" fa-opacity="flowerOpacity(flowerOpacityVal.get())">
+    <fa-image-surface fa-image-url="images/app/kushi.png" class="logo-image"></fa-image-surface>
   </fa-modifier>
+  <!-- Filter menu -->
   <fa-modifier fa-translate="filterPos(filterMenuPos.get())" fa-size="filterSize(filterMenuSize.get())" fa-origin="[1, 0]" fa-align="[1, 0]">
     <fa-scoll-view>
       <fa-sequential-layout fa-options="homeCtrl.filterMenuLayoutOptions">
@@ -77,7 +79,7 @@
                       <i class="mdi mdi-file-image-box mdi-lg"></i>
                       <h4>Images</h4>
                       <span flex></span>
-                      <md-checkbox ng-model="filters.image"></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter" ng-model="filters.type.image"></md-checkbox>
                     </md-item-content>
                   </md-item>
                   <md-item>
@@ -85,7 +87,7 @@
                       <i class="mdi mdi-youtube-play mdi-lg"></i>
                       <h4>Video</h4>
                       <span flex></span>
-                      <md-checkbox ng-model="filters.video"></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter" ng-model="filters.type.video"></md-checkbox>
                     </md-item-content>
                   </md-item>
                   <md-item>
@@ -93,7 +95,7 @@
                       <i class="mdi mdi-library-books mdi-lg"></i>
                       <h4>Stories</h4>
                       <span flex></span>
-                      <md-checkbox ng-model="filters.story"></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter" ng-model="filters.type.story"></md-checkbox>
                     </md-item-content>
                   </md-item>
                   <md-item>
@@ -101,7 +103,7 @@
                       <i class="mdi mdi-newspaper mdi-lg"></i>
                       <h4>Articles</h4>
                       <span flex></span>
-                      <md-checkbox ng-model="filters.article"></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter" ng-model="filters.type.article"></md-checkbox>
                     </md-item-content>
                   </md-item>
                   <md-item>
@@ -109,7 +111,7 @@
                       <i class="mdi mdi-comment-text-outline mdi-lg"></i>
                       <h4>Quotes</h4>
                       <span flex></span>
-                      <md-checkbox ng-model="filters.quote"></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter" ng-model="filters.type.quote"></md-checkbox>
                     </md-item-content>
                   </md-item>
                 </md-list>
@@ -139,19 +141,19 @@
                   <md-item>
                     <md-item-content layout="row" layout-align="space-between center">
                       <h3>Erewhon</h3>
-                      <md-checkbox></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter by place" ng-model="filters.place.erewhon"></md-checkbox>
                     </md-item-content>
                   </md-item>
                   <md-item>
                     <md-item-content layout="row" layout-align="space-between center">
                       <h3>Brookline</h3>
-                      <md-checkbox></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter by place" ng-model="filters.place.brookline"></md-checkbox>
                     </md-item-content>
                   </md-item>
                   <md-item>
                     <md-item-content layout="row" layout-align="space-between center">
                       <h3>Becket</h3>
-                      <md-checkbox></md-checkbox>
+                      <md-checkbox aria-label="checkbox filter by place" ng-model="filters.place.becket"></md-checkbox>
                     </md-item-content>
                   </md-item>
                 </md-list>
@@ -159,84 +161,15 @@
             </section>
           </fa-surface>
         </fa-modifier>
-        <!-- <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-            <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
-              <img src="images/app/file-image-box.png" alt="Images">
-              <h3 hide-sm hide-md>Images</h3>
-            </md-button>
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-            <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
-              <img src="images/app/youtube-play.png" alt="Video">
-              <h3 hide-sm hide-md>Videos</h3>
-            </md-button>
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-            <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
-              <img src="images/app/library-books.png" alt="Storys">
-              <h3 hide-sm hide-md>Stories</h3>
-            </md-button>
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-            <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
-              <img src="images/app/newspaper.png" alt="Articles">
-              <h3 hide-sm hide-md>Articles</h3>
-            </md-button>
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-            <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
-              <img src="images/app/map-marker.png" alt="Places">
-              <h3 hide-sm hide-md>Places</h3>
-            </md-button>
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-            <md-button aria-label="nav button" ng-click="" layout="row" class="side-nav">
-              <img src="images/app/comment-text-outline.png" alt="Quotes">
-              <h3 hide-sm hide-md>Quotes</h3>
-            </md-button>
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[100,100]">
-          <fa-surface>
-
-          </fa-surface>
-        </fa-modifier> -->
-
       </fa-sequential-layout>
       </fa-scroll-view>
-
   </fa-modifier>
-  <fa-modifier fa-translate="[0,72,50]" fa-size="[undifined, 72]">
-    <fa-surface fa-background-color="'red'">
-      <section layout="row">
-        <md-content class="md-padding" layout-fill layout="row">
-          <span flex="30"></span>
-          <md-list layout="row" layout-align="start center" flex>
-            <md-item>Michio</md-item>
-            <md-item>Becket</md-item>
-            <md-item>Erewhon</md-item>
-            <md-item>Avaline</md-item>
-            <md-item>test</md-item>
-            <md-item>test</md-item>
-            <md-item>test</md-item>
-            <md-item>test</md-item>
-            <md-item>test</md-item>
-          </md-list>
-        </md-content>
-      </section>
+  <!-- Background -->
+  <fa-modifier fa-translate="[0,0,1]" fa-size="[undefined, undefined]">
+    <fa-surface fa-background-color="'white'">
     </fa-surface>
   </fa-modifier>
+  <!-- Nav -->
   <fa-modifer fa-translate="[0,0,100]">
     <fa-view>
       <fa-modifier fa-translate="[0,0,100]">
@@ -244,7 +177,7 @@
           <section id="nav" layout="row" layout-align="end center">
             <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
               <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()">
-                <i class="mdi mdi-magnify mdi-2x"></i>
+                <i class="mdi mdi-magnify mdi-lg"></i>
               </md-button>
               <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
 
@@ -257,11 +190,11 @@
               </div>
             </div>
             <div id="filters" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-              <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-2x"></i>
+              <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-lg"></i>
               </md-button>
             </div>
             <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
-              <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-2x"></i>
+              <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-lg"></i>
               </md-button>
             </div>
           </section>
