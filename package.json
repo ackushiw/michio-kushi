@@ -93,7 +93,10 @@
     "angular-mocks": "./bower_components/angular-mocks/angular-mocks.js",
     "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.js",
     "angular-animate": "./bower_components/angular-animate/angular-animate.js",
-    "angular-sanitize": "./bower_components/angular-sanitize/angular-sanitize.js"
+    "angular-sanitize": "./bower_components/angular-sanitize/angular-sanitize.js",
+    "angular-aria": "./bower_components/angular-aria/angular-aria.min.js",
+    "hammerjs": "./bower_components/hammerjs/hammer.min.js",
+    "ngMaterial": "./bower_components/angular-material/angular-material.min.js"
   },
   "browserify": {
     "transform": [
@@ -118,6 +121,23 @@
     "angular-ui-router": {
       "depends": [
         "angular"
+      ]
+    },
+    "hammerjs": {
+      "exports": "global:Hammer"
+    },
+    "ngAnimate": {
+      "depends": [
+        "hammerjs:Hammer"
+      ]
+    },
+    "ngMaterial": {
+      "exports": "ngMaterial",
+      "depends": [
+        "hammerjs",
+        "angular",
+        "ngAnimate",
+        "angular-aria"
       ]
     }
   }
