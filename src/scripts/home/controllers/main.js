@@ -2,19 +2,29 @@
 var controllername = 'main';
 
 module.exports = function(app) {
-    /*jshint validthis: true */
+  /*jshint validthis: true */
 
-    var deps = [];
+  var deps = [];
 
-    function controller() {
-        var vm = this;
-        vm.message = 'Hello World';
-        var activate = function() {
+  function controller() {
+    var vm = this;
 
-        };
-        activate();
-    }
+    //masonry
+    var Masonry = require('masonry-layout');
 
-    controller.$inject = deps;
-    app.controller(app.name + '.' + controllername, controller);
+    var msnry = new Masonry('#container', {
+      // options...
+      columnWidth: '.grid-sizer',
+      gutter: 0,
+      itemSelector: '.item'
+    });
+    vm.message = 'Hello World';
+    var activate = function() {
+
+    };
+    activate();
+  }
+
+  controller.$inject = deps;
+  app.controller(app.name + '.' + controllername, controller);
 };
