@@ -1,3 +1,7 @@
+//background-color
+md-content.md-default-theme {
+  //background-color: #37474f;
+}
 //fonts
 body,
 h1,
@@ -30,6 +34,40 @@ section#nav {
     padding: 4px;
   }
 }
+//sideNav
+section#filter-menu {
+  color: rgba(0, 0, 0, 0.8);
+  md-content {
+    padding: 16px;
+    span.md-subheader-content {
+      i {
+        margin-right: 16px;
+      }
+    }
+    md-list {
+      md-item {
+        i {
+          margin-right: 16px;
+        }
+        button.md-button {
+          margin-right: 16px;
+          i {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+button.side-nav {
+  img,
+  h3 {
+    opacity: 0.6;
+  }
+  h3 {
+    margin-left: 16px;
+  }
+}
 //***search input
 #search {
   padding: 2px;
@@ -60,17 +98,16 @@ section#nav {
   margin: 0;
 }
 .item {
-  width: 99%;
-  margin-bottom: 16px;
+  width: 100%;
+  //margin-bottom: 16px;
   padding: 8px;
-  transform-origin: 0 0 0;
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -1000, 1);
   md-card {
-    background-color: #ddd;
+    background-color: LightSteelBlue;
+    overflow: hidden;
   }
 }
 .item.w2 {
-  width: 99%;
+  width: 100%;
 }
 @media screen and (min-width: 500px) and (max-width:959px) {
   .feed {
@@ -83,7 +120,7 @@ section#nav {
     //background-color: #ddd;
   }
   .item.w2 {
-    width: 99%;
+    width: 96%;
   }
 }
 @media screen and (min-width: 960px) and (max-width:1199px) {
@@ -92,7 +129,7 @@ section#nav {
     //background-color: #dfd;
   }
   .item.w2 {
-    width: 65%;
+    width: 64%;
   }
 }
 @media screen and (min-width: 1200px) and (max-width:1649px) {
@@ -100,7 +137,7 @@ section#nav {
     width: 24%;
   }
   .item.w2 {
-    width: 49%;
+    width: 48%;
   }
 }
 @media screen and (min-width: 1650px) {
@@ -108,6 +145,10 @@ section#nav {
     width: 19%;
   }
   .item.w2 {
-    width: 39%;
+    width: 38%;
   }
+}
+//Helpers
+.fixed {
+  position: fixed;
 }

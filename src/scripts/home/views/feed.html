@@ -2,13 +2,13 @@
   <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }'>
     <!-- items -->
     <div class="item grid-sizer"></div>
-    <div class="item" ng-repeat="item in homeCtrl.feed">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
+    <div class="item w2">
+      <md-card>
+        <img src="images/michio-poem.jpg" width="100%">
       </md-card>
 
     </div>
-    <div class="item">
+    <div class="item" ng-repeat="item in homeCtrl.feed">
       <md-card>
         <i class="mdi mdi-bell"></i>
         <img src="images/kushi-crest.png">

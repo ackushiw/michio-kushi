@@ -25,6 +25,11 @@ module.exports = function(namespace) {
       }).state('home.feed', {
         url: 'memories',
         template: require('./views/feed.html')
+      }).state('home.create', {
+        url: 'create',
+        template: require('./views/create.html'),
+        controller: fullname + '.feed',
+        controllerAs: 'createCtrl'
       });
     }
   ]);

@@ -1,6 +1,6 @@
-<section layout="row" layout-fill>
+<section layout="row" layout-fill class="group">
   <section layout="column" layout-fill>
-    <md-toolbar ng-controller="main.home.nav as navCtrl" md-scroll-shrink>
+    <md-toolbar ng-controller="main.home.nav as navCtrl" ng-class="{fixed: scrollUp}">
       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
         <div layout="row">
           <md-button aria-label="menu button" ng-click="navCtrl.test()">
@@ -44,8 +44,8 @@
     </md-content>
 
   </section>
-  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-    <section ng-controller="main.home.sidenav as filterCtrl">
+  <md-sidenav style="position:fixed" class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <section id="filter-menu" ng-controller="main.home.sidenav as filterCtrl">
 
       <md-toolbar>
         <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
