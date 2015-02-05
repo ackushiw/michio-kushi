@@ -6,6 +6,7 @@ var angular = require('angular');
 
 var app = angular.module(namespace, [
     // inject:modules start
+    require('./home')(namespace).name
     // inject:modules end
 ]);
 
