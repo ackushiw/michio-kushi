@@ -3,9 +3,9 @@
     "appname": "michio",
     "clientFolder": "src",
     "ionic": false,
-    "famous": true,
+    "famous": false,
     "ngCordova": false,
-    "fontawesome": true,
-    "bootstrap": true
+    "fontawesome": false,
+    "bootstrap": false
   }
 }
