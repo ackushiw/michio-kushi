@@ -1,3 +1,46 @@
-
-
-    
+//fonts
+//mdi
+.mdi-lg {
+  font-size: 16pt;
+}
+.mdi-2x {
+  font-size: 24pt;
+}
+.mdi-bold {
+  font-weight: bold;
+}
+//**nav
+section#nav {
+  padding: 16px;
+  #options {
+    margin: 0 10px 0 16px;
+    padding: 4px;
+  }
+  #filters {
+    margin: 0 0 0 16px;
+    padding: 4px;
+  }
+}
+//***search input
+#search {
+  padding: 2px;
+  //margin: 16px;
+  border-radius: 2px;
+  md-input-container {
+    padding: 0;
+    input {
+      //background-image: url("../images/app/magnify.png");
+      background-repeat: no-repeat;
+      //opacity: 0.8;
+    }
+  }
+  md-input-container.md-input-has-value {
+    background-color: #ddd;
+    input {
+      background-image: none;
+    }
+  }
+}
+#search.expanded {
+  background-color: white;
+}

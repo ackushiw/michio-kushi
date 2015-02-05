@@ -1,1 +1,41 @@
-<div>Home</div>
+<section layout="row" layout-fill>
+  <md-sidenav></md-sidenav>
+  <section layout="column" layout-fill>
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <div layout="row">
+          <md-button aria-label="menu button">
+            <img src="images/kushi-crest.png" alt="kushi crest" height="60px" width="60px">
+          </md-button>
+          <h3>Michio Kushi</h3>
+        </div>
+        <section id="nav" layout="row" layout-align="end center">
+          <div id="search" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+            <md-button aria-label="search" ng-click="homeCtrl.toggleSearch()">
+              <i class="mdi mdi-magnify mdi-2x"></i>
+            </md-button>
+            <md-input-container ng-if="homeCtrl.searchFocus" layout="row">
+
+              <input type="text" ng-model="search" flex>
+
+            </md-input-container>
+            <div ng-if="homeCtrl.searchFocus" hide>
+              <md-button aria-label="clear"><i class="mdi mdi-close"></i>
+              </md-button>
+            </div>
+          </div>
+          <div id="filters" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+            <md-button aria-label="search" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-filter-variant mdi-2x"></i>
+            </md-button>
+          </div>
+          <div id="options" layout="row" layout-align="end end" ng-class="{expanded: homeCtrl.searchFocus}">
+            <md-button aria-label="search" ng-click="homeCtrl.toggleOptions()"><i class="mdi mdi-dots-vertical mdi-2x"></i>
+            </md-button>
+          </div>
+        </section>
+      </div>
+    </md-toolbar>
+
+  </section>
+
+</section>
