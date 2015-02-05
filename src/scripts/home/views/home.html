@@ -3,7 +3,7 @@
     <md-toolbar ng-controller="main.home.nav as navCtrl" md-scroll-shrink>
       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
         <div layout="row">
-          <md-button aria-label="menu button">
+          <md-button aria-label="menu button" ng-click="navCtrl.test()">
             <img src="images/kushi-crest.png" alt="kushi crest" height="50px" width="50px">
           </md-button>
           <h3>Michio Kushi</h3>
@@ -35,6 +35,11 @@
       </div>
     </md-toolbar>
     <md-content>
+      <ui-view>
+        <md-card flex="50">
+          <img src="images/michio-poem.jpg" alt="Michio Kushi" flex>
+        </md-card>
+      </ui-view>
 
     </md-content>
 
@@ -69,7 +74,7 @@
             <i class="mdi mdi-file-image-box mdi-lg"></i>
             <h4>Images</h4>
             <span flex></span>
-            <md-checkbox ng-model="filters.image"></md-checkbox>
+            <md-checkbox aria-label="checkbox" ng-model="filters.image"></md-checkbox>
           </md-item-content>
         </md-item>
         <md-item>
@@ -77,7 +82,7 @@
             <i class="mdi mdi-youtube-play mdi-lg"></i>
             <h4>Video</h4>
             <span flex></span>
-            <md-checkbox ng-model="filters.video"></md-checkbox>
+            <md-checkbox aria-label="checkbox" ng-model="filters.video"></md-checkbox>
           </md-item-content>
         </md-item>
         <md-item>
@@ -85,7 +90,7 @@
             <i class="mdi mdi-library-books mdi-lg"></i>
             <h4>Stories</h4>
             <span flex></span>
-            <md-checkbox ng-model="filters.story"></md-checkbox>
+            <md-checkbox aria-label="checkbox" ng-model="filters.story"></md-checkbox>
           </md-item-content>
         </md-item>
         <md-item>
@@ -93,7 +98,7 @@
             <i class="mdi mdi-newspaper mdi-lg"></i>
             <h4>Articles</h4>
             <span flex></span>
-            <md-checkbox ng-model="filters.article"></md-checkbox>
+            <md-checkbox aria-label="checkbox" ng-model="filters.article"></md-checkbox>
           </md-item-content>
         </md-item>
         <md-item>
@@ -101,7 +106,7 @@
             <i class="mdi mdi-comment-text-outline mdi-lg"></i>
             <h4>Quotes</h4>
             <span flex></span>
-            <md-checkbox ng-model="filters.quote"></md-checkbox>
+            <md-checkbox aria-label="checkbox" ng-model="filters.quote"></md-checkbox>
           </md-item-content>
         </md-item>
       </md-list>
@@ -131,19 +136,19 @@
         <md-item>
           <md-item-content layout="row" layout-align="space-between center">
             <h3>Erewhon</h3>
-            <md-checkbox></md-checkbox>
+            <md-checkbox aria-label="checkbox"></md-checkbox>
           </md-item-content>
         </md-item>
         <md-item>
           <md-item-content layout="row" layout-align="space-between center">
             <h3>Brookline</h3>
-            <md-checkbox></md-checkbox>
+            <md-checkbox aria-label="checkbox"></md-checkbox>
           </md-item-content>
         </md-item>
         <md-item>
           <md-item-content layout="row" layout-align="space-between center">
             <h3>Becket</h3>
-            <md-checkbox></md-checkbox>
+            <md-checkbox aria-label="checkbox"></md-checkbox>
           </md-item-content>
         </md-item>
       </md-list>

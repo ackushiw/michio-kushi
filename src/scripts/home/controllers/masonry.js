@@ -1,5 +1,5 @@
 'use strict';
-var controllername = 'main';
+var controllername = 'masonry';
 
 module.exports = function(app) {
   /*jshint validthis: true */
@@ -9,6 +9,15 @@ module.exports = function(app) {
   function controller() {
     var vm = this;
 
+    //masonry
+    var Masonry = require('masonry-layout');
+
+    var msnry = new Masonry('.masonry-container', {
+      // options...
+      columnWidth: '.grid-sizer',
+      gutter: 0,
+      itemSelector: '.item'
+    });
     vm.message = 'Hello World';
     var activate = function() {
 

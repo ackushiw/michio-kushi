@@ -4,11 +4,15 @@ var controllername = 'nav';
 module.exports = function(app) {
   /*jshint validthis: true */
 
-  var deps = ['$log', '$mdSidenav'];
+  var deps = ['$log', '$mdSidenav', '$state'];
 
-  function controller($log, $mdSidenav) {
+  function controller($log, $mdSidenav, $state) {
     var vm = this;
     vm.message = 'Hello World';
+    vm.test = function() {
+      console.log('test');
+      $state.go('home.feed');
+    };
 
     vm.toggleRight = function() {
       $mdSidenav('right').toggle()
