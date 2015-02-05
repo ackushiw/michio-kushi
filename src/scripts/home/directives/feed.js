@@ -5,27 +5,34 @@ var directivename = 'feed';
 module.exports = function(app) {
 
   // controller
-  var controllerDeps = [];
-  var controller = function() {
+  var controllerDeps = ['$firebase', '$window'];
+  var controller = function($firebase, $window) {
     var vm = this;
+    //Firebase URL
+    vm.FBURL = 'https://fabula.firebaseio.com/public/michiokushi';
+    var fireRef = new Firebase(vm.FBURL);
+
+    vm.sync = $firebase(fireRef);
+
+    //Masonry
     var container = document.querySelector('.masonry-container');
     var Masonry = require('masonry-layout');
-
     vm.initMsnry = function() {
       console.log('init');
       var container = document.querySelector('.masonry-container');
       console.log(container);
       vm.msnry = new Masonry(container, {
-        columnWidth: 400,
+        //columnWidth: '.tile-size',
         itemSelector: '.item',
         gutter: 0
       });
       vm.msnry.layout();
     }
-
     vm.layout = function() {
+      console.log('layout updated');
       vm.msnry.layout();
     };
+    //Firebase
 
     vm.feed = {
       "firstName": "John",

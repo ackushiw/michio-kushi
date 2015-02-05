@@ -1,21 +1,38 @@
 <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }'>
   <!-- items -->
+  <div class="item tile-size"></div>
   <div class="item" ng-repeat="item in homeCtrl.feed">
     <md-card><i class="mdi mdi-bell"></i>
       <img src="images/app/kushi.png">
     </md-card>
 
   </div>
-  <div class="item">
+  <div class="item w2">
     <md-card>
-      <i class="mdi mdi-bell"></i>
-      <img src="images/app/kushi.png">
-
+      <fireman-sam firebase="{{feedCtrl.FBURL}}" msnrylayout="feedCtrl.layout()"></fireman-sam>
     </md-card>
   </div>
   <div class="item">
-    <md-card><i class="mdi mdi-bell"></i>
+    <md-card>
+      <md-toolbar>
+        <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+          <h3>title</h3>
+          <md-button aria-label="top button" ng-click=""><i class="mdi mdi-bell mdi-lg"></i>
+          </md-button>
+        </div>
+      </md-toolbar>
       <img src="images/app/kushi.png">
+      <md-toolbar>
+        <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+          <md-button aria-label="top button" ng-click=""><i class="mdi mdi-bell mdi-lg"></i>
+          </md-button>
+          <span flex></span>
+          <md-button aria-label="top button" ng-click=""><i class="mdi mdi-bell mdi-lg"></i>
+          </md-button>
+          <md-button aria-label="top button" ng-click=""><i class="mdi mdi-bell mdi-lg"></i>
+          </md-button>
+        </div>
+      </md-toolbar>
     </md-card>
   </div>
   <div class="item">

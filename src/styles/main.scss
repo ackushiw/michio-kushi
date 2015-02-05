@@ -160,6 +160,101 @@ div.famous-surface {
     height: 100%;
   }
 }
+//fireman-sam
+fireman-sam {
+  h3 {
+    margin-top: 0;
+  }
+  .firesam-top {
+    height: 30px;
+  }
+  .md-fab {
+    top: -15px;
+  }
+  md-toolbar {
+    border-radius: 0 0 2px 2px;
+  }
+}
+//tags
+.tag-editor {
+  display: block;
+  position: relative;
+  margin: 5px 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  min-height: 40px;
+  overflow: hidden;
+  padding: 0 9px;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #fff;
+  color: #000;
+  cursor: text;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 38px;
+}
+.tag-draft {
+  
+}
+.tag-suggestions {
+  display: block;
+}
+.tag-editor .tag {
+  display: inline-block;
+  height: 24px;
+  margin: 0 7px 0 0;
+  background-color: #ffab40;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: default;
+  transition: box-shadow 100ms linear;
+}
+.tag-editor .tag:hover {
+  box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+.tag-editor .tag .remove {
+  margin: 0 0 0 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.tag-editor .tag-input {
+  display: inline-block;
+  width: auto;
+  height: 38px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.tag-editor .tag-input:focus {
+  box-shadow: none;
+  outline: none;
+}
+.tag-editor.active {
+  border-color: #aaa;
+}
+.tag-editor .tag-suggestions {
+  cursor: auto;
+}
+.tag-editor .tag-suggestions .title {
+  display: block;
+  float: left;
+  height: 25px;
+  margin: 7px 7px 0 0;
+  background-color: transparent;
+  color: #888;
+  font-weight: bold;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 25px;
+}
+.tag-editor .tag-suggestions .tag {
+  cursor: pointer;
+  background-color: #bdbdbd;
+}
 //test masonry
 #container {
   .stamp {
@@ -171,7 +266,7 @@ div.famous-surface {
   }
 }
 .item {
-  width: 99%;
+  width: 100%;
   margin-bottom: 16px;
   padding: 8px;
   transform-origin: 0 0 0;
@@ -181,7 +276,7 @@ div.famous-surface {
   }
 }
 .item.w2 {
-  width: 99%;
+  width: 100%;
 }
 @media screen and (min-width: 500px) and (max-width:959px) {
   .feed {
@@ -190,11 +285,11 @@ div.famous-surface {
     }
   }
   .item {
-    width: 48%;
+    width: 49%;
     //background-color: #ddd;
   }
   .item.w2 {
-    width: 99%;
+    width: 98%;
   }
 }
 @media screen and (min-width: 960px) and (max-width:1199px) {
@@ -203,7 +298,7 @@ div.famous-surface {
     //background-color: #dfd;
   }
   .item.w2 {
-    width: 65%;
+    width: 64%;
   }
 }
 @media screen and (min-width: 1200px) and (max-width:1649px) {
@@ -211,7 +306,7 @@ div.famous-surface {
     width: 24%;
   }
   .item.w2 {
-    width: 49%;
+    width: 48%;
   }
 }
 @media screen and (min-width: 1650px) {
@@ -219,6 +314,6 @@ div.famous-surface {
     width: 19%;
   }
   .item.w2 {
-    width: 39%;
+    width: 38%;
   }
 }

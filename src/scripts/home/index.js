@@ -3,7 +3,10 @@ require('angular-ui-router');
 require('famous-angular');
 require('ngMaterial');
 require('ngAnimate');
-//require('masonry');
+require('angularfire');
+require('ngTagEditor');
+require('angular-youtube-embed');
+require('angular-embedly');
 
 var modulename = 'home';
 
@@ -12,7 +15,7 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'famous.angular', 'ngMaterial', 'ngAnimate']);
+  var app = angular.module(fullname, ['ui.router', 'famous.angular', 'ngMaterial', 'ngAnimate', 'firebase', 'ngTagEditor', 'youtube-embed', 'angular-embedly']);
   // inject:folders start
   require('./controllers')(app);
   require('./directives')(app);

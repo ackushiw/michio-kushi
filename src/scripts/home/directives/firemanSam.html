@@ -1,0 +1,101 @@
+<md-content class="md-padding" layout="column">
+
+  <md-list>
+    <md-item>
+      <md-item-content flex>
+        <h3 flex>
+          <md-input-container flex>
+            <label>Title</label>
+            <input type="text" ng-model="post.title" flex>
+          </md-input-container>
+        </h3>
+
+      </md-item-content>
+    </md-item>
+    <md-item>
+      <md-item-content>
+        <md-input-container flex>
+          <label>Story</label>
+          <textarea ng-model="post.story">
+          </textarea>
+        </md-input-container>
+      </md-item-content>
+    </md-item>
+    <md-item>
+      <md-item-content>
+        <md-input-container flex>
+          <label>Image Url</label>
+          <input ng-model="post.image">
+        </md-input-container>
+      </md-item-content>
+    </md-item>
+    <md-item ng-if="post.image">
+      <md-item-content>
+        <md-input-container flex>
+          <img ng-src="{{post.image}}">
+        </md-input-container>
+      </md-item-content>
+    </md-item>
+    <md-item>
+      <md-item-content>
+        <md-input-container flex>
+          <label>Video Url</label>
+          <input ng-model="post.video">
+        </md-input-container>
+      </md-item-content>
+    </md-item>
+    <md-item ng-if="post.video">
+      <md-item-content>
+        <youtube-video video-url="post.video"></youtube-video>
+      </md-item-content>
+    </md-item>
+
+    <md-item>
+      <md-item-content>
+        <md-input-container flex>
+          <label>News Article Url</label>
+          <input ng-model="post.article">
+        </md-input-container>
+      </md-item-content>
+    </md-item>
+  </md-list>
+
+  <div class="tag-editor" ng-class="{active:focus}" ng-init="focus = false" ng-click="setFocus = true">
+    <div class="tag-draft">
+      <span class="tag" ng-repeat="tag in tags">{{tag.name}}
+        <span class="remove" ng-click="remove($index)">x</span>
+      </span>
+      <input type="hidden" name="tags" value="{{tags | getCol:options.output}}" />
+      <input type="text" class="tag-input" placeholder="{{options.placeholder}}" ng-focus="focus = true" ng-blur="focus = false" focus-me="setFocus" ng-model="search" />
+    </div>
+    <div class="tag-suggestions" ng-show="suggestions && focus">
+      <span class="title">Suggestions:</span>
+      <span class="tag" ng-repeat="tag in suggestions | limitTo:4" ng-mousedown="add(tag.id, tag.name)">{{tag.name}}</span>
+    </div>
+  </div>
+
+  <div layout="row">
+    <span flex></span>
+    <md-button aria-label="save" class="md-raised md-primary" ng-click="save(post)">save</md-button>
+  </div>
+
+</md-content>
+<md-toolbar class="md-accent">
+  <div class="md-toolbar-tools firesam-top" layout="row" layout-align="center center">
+    <md-button class="md-warn md-fab md-raised" aria-label="add new section" ng-click="editor = !editor"><i class="mdi mdi-plus mdi-2x"></i>
+    </md-button>
+  </div>
+
+  <div class="md-toolbar-tools" layout="row" layout-align="space-around center">
+    <md-button aria-label="entry type select" ng-click="menu.story = !menu.story"><i class="mdi mdi-border-color mdi-2x"></i>
+    </md-button>
+    <md-button aria-label="entry type select" ng-click="menu.image = !menu.image"><i class="mdi mdi-file-image mdi-2x"></i>
+    </md-button>
+    <md-button aria-label="entry type select" ng-click="menu.video = !menu.video"><i class="mdi mdi-youtube-play mdi-2x"></i>
+    </md-button>
+    <md-button aria-label="entry type select" ng-click="menu.article = !menu.article"><i class="mdi mdi-newspaper mdi-2x"></i>
+    </md-button>
+    <md-button aria-label="entry type select" ng-click="menu.place = !menu.place"><i class="mdi mdi-map-marker mdi-2x"></i>
+    </md-button>
+  </div>
+</md-toolbar>

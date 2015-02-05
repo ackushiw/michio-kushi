@@ -56,7 +56,7 @@ module.exports = function() {
         src: ['./' + clientFolder + '/styles/main{{targetSuffix}}.scss']
       },
       css: {
-        src: ['./bower_components/famous-angular/dist/famous-angular.css', './bower_components/bootstrap/dist/css/bootstrap.css', './bower_components/bootstrap/dist/css/bootstrap-theme.css', './bower_components/angular-material/angular-material.css', './bower_components/angular-material/default-theme.css', './bower_components/angular-material/modules/css/angular-material-layout.css', './bower_components/mdi/materialdesignicons.css'] // you can also add a specific src_appname
+        src: ['./bower_components/famous-angular/dist/famous-angular.css', './bower_components/bootstrap/dist/css/bootstrap.css', './bower_components/bootstrap/dist/css/bootstrap-theme.css', './bower_components/angular-material/angular-material.css', './bower_components/angular-material/default-theme.css', './bower_components/angular-material/modules/css/angular-material-layout.css', './bower_components/mdi/materialdesignicons.css', ".bower_components/ng-tag-editor/ngTagEditor.css"] // you can also add a specific src_appname
       }
     },
 
