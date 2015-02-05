@@ -19,10 +19,17 @@ module.exports = function(namespace) {
       $urlRouterProvider.otherwise('/');
       $stateProvider.state('home', {
         url: '/',
-        template: require('./views/home.html')
+        template: require('./views/home.html'),
+        controller: fullname + '.main',
+        controllerAs: 'homeCtrl'
       });
     }
   ]);
+  app.config(['$mdThemingProvider', function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('cyan')
+      .accentPalette('orange');
+  }]);
 
   return app;
 };

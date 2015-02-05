@@ -2,19 +2,26 @@
 var controllername = 'nav';
 
 module.exports = function(app) {
-    /*jshint validthis: true */
+  /*jshint validthis: true */
 
-    var deps = [];
+  var deps = ['$log', '$mdSidenav'];
 
-    function controller() {
-        var vm = this;
-        vm.message = 'Hello World';
-        var activate = function() {
+  function controller($log, $mdSidenav) {
+    var vm = this;
+    vm.message = 'Hello World';
 
-        };
-        activate();
-    }
+    vm.toggleRight = function() {
+      $mdSidenav('right').toggle()
+        .then(function() {
+          $log.debug("toggle RIGHT is done");
+        });
+    };
+    var activate = function() {
 
-    controller.$inject = deps;
-    app.controller(app.name + '.' + controllername, controller);
+    };
+    activate();
+  }
+
+  controller.$inject = deps;
+  app.controller(app.name + '.' + controllername, controller);
 };
