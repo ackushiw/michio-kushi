@@ -53,3 +53,61 @@ section#nav {
 #search.expanded {
   background-color: white;
 }
+//masonry
+.grid-sizer.item {
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+.item {
+  width: 99%;
+  margin-bottom: 16px;
+  padding: 8px;
+  transform-origin: 0 0 0;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -1000, 1);
+  md-card {
+    background-color: #ddd;
+  }
+}
+.item.w2 {
+  width: 99%;
+}
+@media screen and (min-width: 500px) and (max-width:959px) {
+  .feed {
+    div.masonry-container {
+      padding: 8px;
+    }
+  }
+  .item {
+    width: 48%;
+    //background-color: #ddd;
+  }
+  .item.w2 {
+    width: 99%;
+  }
+}
+@media screen and (min-width: 960px) and (max-width:1199px) {
+  .item {
+    width: 32%;
+    //background-color: #dfd;
+  }
+  .item.w2 {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width:1649px) {
+  .item {
+    width: 24%;
+  }
+  .item.w2 {
+    width: 49%;
+  }
+}
+@media screen and (min-width: 1650px) {
+  .item {
+    width: 19%;
+  }
+  .item.w2 {
+    width: 39%;
+  }
+}

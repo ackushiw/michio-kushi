@@ -1,6 +1,7 @@
 <section ng-controller="main.home.masonry as msnryCtrl">
   <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }'>
     <!-- items -->
+    <div class="item grid-sizer"></div>
     <div class="item" ng-repeat="item in homeCtrl.feed">
       <md-card><i class="mdi mdi-bell"></i>
         <img src="images/kushi-crest.png">

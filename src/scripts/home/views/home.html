@@ -44,115 +44,118 @@
     </md-content>
 
   </section>
-  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" ng-controller="main.home.sidenav as filterCtrl">
-    <md-toolbar>
-      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-        <md-button aria-label="close filter menu" ng-click="filterCtrl.close()"><i class="mdi mdi-arrow-right mdi-2x"></i>
-        </md-button>
-        <h3>Filter by</h3>
-        <span flex></span>
-        <md-button aria-label="reset filters" ng-click="filters = null"><i class="mdi mdi-refresh mdi-2x"></i>
-        </md-button>
-      </div>
-    </md-toolbar>
-    <md-content class="md-padding" layout="column" layout-align="start start" layout-fill>
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <section ng-controller="main.home.sidenav as filterCtrl">
 
-      <md-list layout-fill>
-        <md-item id="search" layout="row" layout-align="space-between end" layout-fill>
-          <i class="mdi mdi-magnify mdi-lg"></i>
-
-          <md-input-container layout="row" flex>
-
-            <input type="text" ng-model="search" flex>
-
-          </md-input-container>
-          <md-button aria-label="clear search" ng-click="search = null"><i class="mdi mdi-close mdi-lg"></i>
+      <md-toolbar>
+        <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+          <md-button aria-label="close filter menu" ng-click="filterCtrl.close()"><i class="mdi mdi-arrow-right mdi-2x"></i>
           </md-button>
-        </md-item>
-        <md-item>
-          <md-item-content layout-fill layout="row" layout-align="space-between center">
-            <i class="mdi mdi-file-image-box mdi-lg"></i>
-            <h4>Images</h4>
-            <span flex></span>
-            <md-checkbox aria-label="checkbox" ng-model="filters.image"></md-checkbox>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <i class="mdi mdi-youtube-play mdi-lg"></i>
-            <h4>Video</h4>
-            <span flex></span>
-            <md-checkbox aria-label="checkbox" ng-model="filters.video"></md-checkbox>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <i class="mdi mdi-library-books mdi-lg"></i>
-            <h4>Stories</h4>
-            <span flex></span>
-            <md-checkbox aria-label="checkbox" ng-model="filters.story"></md-checkbox>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <i class="mdi mdi-newspaper mdi-lg"></i>
-            <h4>Articles</h4>
-            <span flex></span>
-            <md-checkbox aria-label="checkbox" ng-model="filters.article"></md-checkbox>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <i class="mdi mdi-comment-text-outline mdi-lg"></i>
-            <h4>Quotes</h4>
-            <span flex></span>
-            <md-checkbox aria-label="checkbox" ng-model="filters.quote"></md-checkbox>
-          </md-item-content>
-        </md-item>
-      </md-list>
-      <md-subheader layout="row">
-        <i class="mdi mdi-account-multiple"></i>
-        <span>People</span>
-      </md-subheader>
-      <md-list layout-fill layout="row" layout-align="space-around center">
-        <md-item>
-          <md-item-content layout="row">
-            <md-button aria-label="michio" class="md-primary" ng-class="{'md-raised':filters.michio}" ng-click="">michio</md-button>
+          <h3>Filter by</h3>
+          <span flex></span>
+          <md-button aria-label="reset filters" ng-click="filters = null"><i class="mdi mdi-refresh mdi-2x"></i>
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding" layout="column" layout-align="start start" layout-fill>
 
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row">
-            <md-button aria-label="aveline" class="md-primary" ng-class="{'md-raised':filters.aveline}" ng-click="">aveline</md-button>
-          </md-item-content>
-        </md-item>
-      </md-list>
+        <md-list layout-fill>
+          <md-item id="search" layout="row" layout-align="space-between end" layout-fill>
+            <i class="mdi mdi-magnify mdi-lg"></i>
 
-      <md-subheader>
-        <i class="mdi mdi-map-marker"></i>
-        <span>Places</span>
-      </md-subheader>
-      <md-list layout-fill>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <h3>Erewhon</h3>
-            <md-checkbox aria-label="checkbox"></md-checkbox>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <h3>Brookline</h3>
-            <md-checkbox aria-label="checkbox"></md-checkbox>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row" layout-align="space-between center">
-            <h3>Becket</h3>
-            <md-checkbox aria-label="checkbox"></md-checkbox>
-          </md-item-content>
-        </md-item>
-      </md-list>
-    </md-content>
+            <md-input-container layout="row" flex>
+
+              <input type="text" ng-model="search" flex>
+
+            </md-input-container>
+            <md-button aria-label="clear search" ng-click="search = null"><i class="mdi mdi-close mdi-lg"></i>
+            </md-button>
+          </md-item>
+          <md-item>
+            <md-item-content layout-fill layout="row" layout-align="space-between center">
+              <i class="mdi mdi-file-image-box mdi-lg"></i>
+              <h4>Images</h4>
+              <span flex></span>
+              <md-checkbox aria-label="checkbox" ng-model="filters.image"></md-checkbox>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <i class="mdi mdi-youtube-play mdi-lg"></i>
+              <h4>Video</h4>
+              <span flex></span>
+              <md-checkbox aria-label="checkbox" ng-model="filters.video"></md-checkbox>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <i class="mdi mdi-library-books mdi-lg"></i>
+              <h4>Stories</h4>
+              <span flex></span>
+              <md-checkbox aria-label="checkbox" ng-model="filters.story"></md-checkbox>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <i class="mdi mdi-newspaper mdi-lg"></i>
+              <h4>Articles</h4>
+              <span flex></span>
+              <md-checkbox aria-label="checkbox" ng-model="filters.article"></md-checkbox>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <i class="mdi mdi-comment-text-outline mdi-lg"></i>
+              <h4>Quotes</h4>
+              <span flex></span>
+              <md-checkbox aria-label="checkbox" ng-model="filters.quote"></md-checkbox>
+            </md-item-content>
+          </md-item>
+        </md-list>
+        <md-subheader layout="row">
+          <i class="mdi mdi-account-multiple"></i>
+          <span>People</span>
+        </md-subheader>
+        <md-list layout-fill layout="row" layout-align="space-around center">
+          <md-item>
+            <md-item-content layout="row">
+              <md-button aria-label="michio" class="md-primary" ng-class="{'md-raised':filters.michio}" ng-click="">michio</md-button>
+
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row">
+              <md-button aria-label="aveline" class="md-primary" ng-class="{'md-raised':filters.aveline}" ng-click="">aveline</md-button>
+            </md-item-content>
+          </md-item>
+        </md-list>
+
+        <md-subheader>
+          <i class="mdi mdi-map-marker"></i>
+          <span>Places</span>
+        </md-subheader>
+        <md-list layout-fill>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <h3>Erewhon</h3>
+              <md-checkbox aria-label="checkbox"></md-checkbox>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <h3>Brookline</h3>
+              <md-checkbox aria-label="checkbox"></md-checkbox>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content layout="row" layout-align="space-between center">
+              <h3>Becket</h3>
+              <md-checkbox aria-label="checkbox"></md-checkbox>
+            </md-item-content>
+          </md-item>
+        </md-list>
+      </md-content>
+    </section>
   </md-sidenav>
 
 </section>

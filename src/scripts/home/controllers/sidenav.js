@@ -4,9 +4,9 @@ var controllername = 'sidenav';
 module.exports = function(app) {
   /*jshint validthis: true */
 
-  var deps = ['$mdSidenav'];
+  var deps = ['$log', '$mdSidenav'];
 
-  function controller($mdSidenav) {
+  function controller($log, $mdSidenav) {
     var vm = this;
     vm.message = 'Hello World';
     vm.close = function() {
