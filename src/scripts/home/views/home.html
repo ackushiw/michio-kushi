@@ -44,10 +44,10 @@
     </md-content>
 
   </section>
-  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" ng-controller="main.home.sidenav as filterCtrl">
     <md-toolbar>
       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-        <md-button aria-label="close filter menu" ng-click="homeCtrl.toggleFilters()"><i class="mdi mdi-arrow-right mdi-2x"></i>
+        <md-button aria-label="close filter menu" ng-click="filterCtrl.close()"><i class="mdi mdi-arrow-right mdi-2x"></i>
         </md-button>
         <h3>Filter by</h3>
         <span flex></span>
