@@ -2,11 +2,11 @@
   <section layout="column" layout-fill>
     <md-toolbar ng-controller="main.home.nav as navCtrl" ng-class="{fixed: scrollUp}">
       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-        <div layout="row">
+        <div layout="row" class="nav-bar-title" ng-class="{expanded: navCtrl.searchFocus}">
           <md-button aria-label="menu button" ng-click="navCtrl.test()">
             <img src="images/kushi-crest.png" alt="kushi crest" height="50px" width="50px">
           </md-button>
-          <h3>Michio Kushi</h3>
+          <h3 ui-sref="home">Michio Kushi</h3>
         </div>
         <section id="nav" layout="row" layout-align="end center">
           <div id="search" layout="row" layout-align="end end" ng-class="{expanded: navCtrl.searchFocus}">
@@ -18,7 +18,7 @@
               <input type="text" ng-model="search" flex>
 
             </md-input-container>
-            <div ng-if="homeCtrl.searchFocus" hide>
+            <div ng-if="navCtrl.searchFocus" hide>
               <md-button aria-label="clear"><i class="mdi mdi-close"></i>
               </md-button>
             </div>
@@ -138,19 +138,19 @@
           <md-item>
             <md-item-content layout="row" layout-align="space-between center">
               <h3>Erewhon</h3>
-              <md-checkbox aria-label="checkbox"></md-checkbox>
+              <md-checkbox aria-label="checkbox" ng-model="filters.places.erewhon"></md-checkbox>
             </md-item-content>
           </md-item>
           <md-item>
             <md-item-content layout="row" layout-align="space-between center">
               <h3>Brookline</h3>
-              <md-checkbox aria-label="checkbox"></md-checkbox>
+              <md-checkbox aria-label="checkbox" ng-model="filters.places.brookline"></md-checkbox>
             </md-item-content>
           </md-item>
           <md-item>
             <md-item-content layout="row" layout-align="space-between center">
               <h3>Becket</h3>
-              <md-checkbox aria-label="checkbox"></md-checkbox>
+              <md-checkbox aria-label="checkbox" ng-model="filters.places.becket"></md-checkbox>
             </md-item-content>
           </md-item>
         </md-list>

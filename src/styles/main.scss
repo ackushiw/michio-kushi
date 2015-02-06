@@ -90,6 +90,9 @@ button.side-nav {
 }
 #search.expanded {
   background-color: white;
+  button.md-button {
+    color: rgba(0,0,0,0.87);
+  }
 }
 //masonry
 .grid-sizer.item {
@@ -108,6 +111,11 @@ button.side-nav {
 }
 .item.w2 {
   width: 100%;
+}
+@media screen and (max-width: 500px) {
+  .expanded.nav-bar-title {
+    display: none;
+  }
 }
 @media screen and (min-width: 500px) and (max-width:959px) {
   .feed {

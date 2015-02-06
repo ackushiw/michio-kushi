@@ -13,6 +13,10 @@ module.exports = function(app) {
       console.log('test');
       $state.go('home.feed');
     };
+    vm.searchFocus = false;
+    vm.toggleSearch = function() {
+      vm.searchFocus = toggle(vm.searchFocus);
+    };
 
     vm.toggleRight = function() {
       $mdSidenav('right').toggle()
@@ -20,6 +24,11 @@ module.exports = function(app) {
           $log.debug("toggle RIGHT is done");
         });
     };
+
+    function toggle(thing) {
+      thing = !thing;
+      return thing
+    }
     var activate = function() {
 
     };
