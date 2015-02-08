@@ -2,19 +2,21 @@
 var controllername = 'feed';
 
 module.exports = function(app) {
-    /*jshint validthis: true */
+  /*jshint validthis: true */
 
-    var deps = [];
+  var deps = [app.name + '.feedFactory'];
 
-    function controller() {
-        var vm = this;
-        vm.message = 'Hello World';
-        var activate = function() {
+  function controller(feedFactory) {
+    var vm = this;
+    var activate = function() {
+      vm.data = feedFactory.data();
+      console.log(vm.data);
+      vm.feed = feedFactory.asArray(vm.data);
 
-        };
-        activate();
-    }
+    };
+    activate();
+  }
 
-    controller.$inject = deps;
-    app.controller(app.name + '.' + controllername, controller);
+  controller.$inject = deps;
+  app.controller(app.name + '.' + controllername, controller);
 };

@@ -1,6 +1,7 @@
 'use strict';
 require('angular-ui-router');
 require('ngMaterial');
+require('angularfire');
 
 var modulename = 'home';
 
@@ -9,7 +10,7 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'ngMaterial']);
+  var app = angular.module(fullname, ['ui.router', 'ngMaterial', 'firebase']);
   // inject:folders start
   require('./controllers')(app);
   require('./services')(app);

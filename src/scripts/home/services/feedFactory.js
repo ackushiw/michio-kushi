@@ -10,17 +10,18 @@ module.exports = function(app) {
     var sync = $firebase(ref);
 
     var feed = {
+      data: fireData,
       ref: getDataRef,
       push: pushToFirebase,
       set: setInFirebase, //([key,]data)
       remove: removeFirebaseData, //([key])
       update: updateInFirebase, //([key,]data)
-      array: syncArray,
+      asArray: syncArray,
       arrayAdd: add, //(newData)
       arraySave: saveIndex, //(recordOrIndex)
       arrayRemove: removeIndex, //(recordOrIndex)
       arrayIndex: indexFor, //(key)
-      object: syncObject,
+      asObject: syncObject,
       objectPriority: getPriority,
       objectSetPriority: setPriority,
       objectRemove: removeObject,
@@ -28,6 +29,10 @@ module.exports = function(app) {
     };
 
     return feed;
+
+    function fireData() {
+      return sync;
+    }
 
     function getDataRef(fireData) {
       if(fireData) {
@@ -45,7 +50,7 @@ module.exports = function(app) {
       }
     }
 
-    function setInFireBase(newKey, newData) {
+    function setInFirebase(newKey, newData) {
       if(newKey) {
         return sync.$set(newKey, newData);
       } else {

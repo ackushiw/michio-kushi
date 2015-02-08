@@ -23,6 +23,16 @@ module.exports = function(app) {
 
     };
     activate();
+
+    vm.layout = function() {
+      console.log('masonry layout check');
+      msnry.layout();
+    }
+    vm.reload = function() {
+      console.log('masonry reloaded');
+      msnry.reloadItems();
+      msnry.layout();
+    }
   }
 
   controller.$inject = deps;
