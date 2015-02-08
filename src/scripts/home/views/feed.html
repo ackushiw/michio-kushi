@@ -1,4 +1,4 @@
-<section ng-controller="main.home.masonry as msnryCtrl">
+<section id="feed" ng-controller="main.home.masonry as msnryCtrl">
   <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }' ng-controller="main.home.feed as feedCtrl">
     <!-- items -->
     <div class="item grid-sizer"></div>
@@ -8,71 +8,38 @@
       </md-card>
 
     </div>
-    <div class="item" ng-repeat="entry in feedCtrl.feed" ng-if="entry.title">
+    <div class="item" ng-class="{w2: entry.video}" ng-repeat="entry in feedCtrl.feed" ng-if="entry.title">
 
       <md-card ng-init="msnryCtrl.reload()">
         <md-toolbar>
           <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
             <h3>{{entry.title}}</h3>
+            <span flex></span>
+            <md-button aria-label="share" ng-click=""><i class="mdi mdi-share mdi-lg"></i>
+            </md-button>
+            <md-button aria-label="extras" ng-click=""><i class="mdi mdi-lg mdi-dots-vertical"></i>
+            </md-button>
           </div>
         </md-toolbar>
-        <i class="mdi mdi-star"></i>
-        <img src="images/kushi-crest.png">
+        <img src="images/kushi-crest.png" ng-if="!entry.video">
+        <div ng-if="entry.video" class="video-frame">
+          <youtube-video video-url="entry.video" player-width="'100%'" player-height="'100%'" ng-init="msnryCtrl.reload()"></youtube-video>
+        </div>
         <md-toolbar>
           <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+            <md-button aria-label="bottom toolbar button" ng-click=""><i class="mdi mdi-lg mdi-tag"></i>
+            </md-button>
+            <md-button aria-label="bottom toolbar button" ng-click=""><i class="mdi mdi-lg mdi-comment-text-outline"></i>
+            </md-button>
+
+            <span flex></span>
+            <md-button aria-label="bottom toolbar button" ng-click=""><i class="mdi mdi-lg mdi-heart-outline"></i>
+            </md-button>
 
           </div>
         </md-toolbar>
       </md-card>
 
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-google-plus"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card>
-        <i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-    </div>
-    <div class="item">
-      <md-card><i class="mdi mdi-bell"></i>
-        <img src="images/kushi-crest.png">
-      </md-card>
-      <ng-button aria-label="test layout" ng-click="feedCtrl.layout()">test</ng-button>
     </div>
 
   </div>

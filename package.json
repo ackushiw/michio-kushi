@@ -98,7 +98,8 @@
     "hammerjs": "./bower_components/hammerjs/hammer.min.js",
     "ngMaterial": "./bower_components/angular-material/angular-material.min.js",
     "angularfire": "./bower_components/angularfire/dist/angularfire.min.js",
-    "firebase": "./bower_components/firebase/firebase.js"
+    "firebase": "./bower_components/firebase/firebase.js",
+    "angular-youtube-mb": "./bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"
   },
   "browserify": {
     "transform": [

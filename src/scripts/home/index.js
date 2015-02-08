@@ -2,6 +2,7 @@
 require('angular-ui-router');
 require('ngMaterial');
 require('angularfire');
+require('angular-youtube-mb');
 
 var modulename = 'home';
 
@@ -10,7 +11,7 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'ngMaterial', 'firebase']);
+  var app = angular.module(fullname, ['ui.router', 'ngMaterial', 'firebase', 'youtube-embed']);
   // inject:folders start
   require('./controllers')(app);
   require('./services')(app);

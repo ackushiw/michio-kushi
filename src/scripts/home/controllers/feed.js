@@ -11,7 +11,7 @@ module.exports = function(app) {
     var activate = function() {
       vm.data = feedFactory.data();
       console.log(vm.data);
-      vm.feed = feedFactory.asArray(vm.data);
+      vm.feed = feedFactory.asArray();
 
     };
     activate();
