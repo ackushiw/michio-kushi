@@ -13,14 +13,14 @@
   </div>
 </md-toolbar>
 <md-content class="md-padding" layout="column">
-
+  <h1>{{createCtrl.currentPost}}</h1>
   <md-list>
     <md-item>
       <md-item-content flex>
         <h3 flex>
           <md-input-container flex>
             <label>Title</label>
-            <input type="text" ng-model="post.title" flex>
+            <input type="text" ng-model="createCtrl.entry.title" flex>
           </md-input-container>
         </h3>
 
@@ -30,7 +30,7 @@
       <md-item-content>
         <md-input-container flex>
           <label>Story</label>
-          <textarea ng-model="post.story">
+          <textarea ng-model="createCtrl.entry.story">
           </textarea>
         </md-input-container>
       </md-item-content>
@@ -39,14 +39,14 @@
       <md-item-content>
         <md-input-container flex>
           <label>Image Url</label>
-          <input ng-model="post.image">
+          <input ng-model="createCtrl.entry.image">
         </md-input-container>
       </md-item-content>
     </md-item>
-    <md-item ng-if="post.image">
+    <md-item ng-if="createCtrl.entry.image">
       <md-item-content>
         <md-input-container flex>
-          <img ng-src="{{post.image}}">
+          <img ng-src="{{createCtrl.entry.image}}">
         </md-input-container>
       </md-item-content>
     </md-item>
@@ -54,13 +54,13 @@
       <md-item-content>
         <md-input-container flex>
           <label>Video Url</label>
-          <input ng-model="post.video">
+          <input ng-model="createCtrl.entry.video">
         </md-input-container>
       </md-item-content>
     </md-item>
-    <md-item ng-if="post.video">
+    <md-item ng-if="createCtrl.entry.video">
       <md-item-content>
-        <youtube-video video-url="post.video"></youtube-video>
+        <youtube-video video-url="createCtrl.entry.video"></youtube-video>
       </md-item-content>
     </md-item>
 
@@ -68,7 +68,7 @@
       <md-item-content>
         <md-input-container flex>
           <label>News Article Url</label>
-          <input ng-model="post.article">
+          <input ng-model="createCtrl.entry.article">
         </md-input-container>
       </md-item-content>
     </md-item>
@@ -90,7 +90,7 @@
 
   <div layout="row">
     <span flex></span>
-    <md-button aria-label="save" class="md-raised md-primary" ng-click="save(post)">save</md-button>
+    <md-button aria-label="save" class="md-raised md-primary" ng-click="createCtrl.post(createCtrl.entry)">save</md-button>
   </div>
 
 </md-content>

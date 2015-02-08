@@ -6,7 +6,8 @@ module.exports = function(app) {
   var dependencies = ['$firebase'];
 
   function service($firebase) {
-    var ref = new Firebase('https://fabula.firebaseio.com/public/michiokushi');
+    var baseUrl = 'https://fabula.firebaseio.com/public/michiokushi';
+    var ref = new Firebase(baseUrl);
     var sync = $firebase(ref);
 
     var feed = {
@@ -22,8 +23,8 @@ module.exports = function(app) {
       arrayRemove: removeIndex, //(recordOrIndex)
       arrayIndex: indexFor, //(key)
       asObject: syncObject,
-      objectPriority: getPriority,
-      objectSetPriority: setPriority,
+      priority: getPriority,
+      newPriority: setPriority,
       objectRemove: removeObject,
       objectSave: saveObject
     };
@@ -62,7 +63,8 @@ module.exports = function(app) {
       return key.$remove();
     }
 
-    function syncArray(fireData) {
+    function syncArray(newLocation) {
+      var fireData = setLocation(newLocation);
       return fireData.$asArray();
     }
 
@@ -90,7 +92,9 @@ module.exports = function(app) {
       return fireArray.$indexFor(key);
     }
 
-    function syncObject(fireData) {
+    function syncObject(newLocation) {
+      var fireData = setLocation(newLocation);
+      console.log(fireData);
       return fireData.$asObject();
     }
 
@@ -101,11 +105,10 @@ module.exports = function(app) {
     }
 
     function setPriority(fireData, newPriority) {
-      var priority = fireData.$priority;
-      priority = newPriority;
-      console.log(priority);
+      console.log('new Priority', newPriority);
+      fireData.$priority = newPriority;
       fireData.$save();
-      return priority;
+      return fireData;
     }
 
     function removeObject(fireObj) {
@@ -114,6 +117,23 @@ module.exports = function(app) {
 
     function saveObject(fireObj) {
       fireObj.$save();
+    }
+
+    function setLocation(newLocation) {
+      if(newLocation) {
+        var newUrl = baseUrl + '/' + newLocation;
+        console.log('firebase location', newUrl);
+        var fireData = newFirebase(newUrl);
+      } else {
+        console.log('firebase location', baseUrl);
+        var fireData = newFirebase(baseUrl);
+      }
+      return fireData;
+    }
+
+    function newFirebase(url) {
+      var newFire = new Firebase(url);
+      return $firebase(newFire);
     }
 
   }

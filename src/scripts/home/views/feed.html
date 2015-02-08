@@ -8,9 +8,9 @@
       </md-card>
 
     </div>
-    <div class="item" ng-repeat="entry in feedCtrl.feed">
+    <div class="item" ng-repeat="entry in feedCtrl.feed" ng-if="entry.title">
 
-      <md-card ng-if="entry.title" ng-init="msnryCtrl.reload()">
+      <md-card ng-init="msnryCtrl.reload()">
         <md-toolbar>
           <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
             <h3>{{entry.title}}</h3>

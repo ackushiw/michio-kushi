@@ -30,7 +30,7 @@ module.exports = function(namespace) {
       }).state('home.create', {
         url: 'create',
         template: require('./views/create.html'),
-        controller: fullname + '.feed',
+        controller: fullname + '.post',
         controllerAs: 'createCtrl'
       });
     }

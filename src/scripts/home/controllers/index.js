@@ -6,6 +6,7 @@ module.exports = function(app) {
     require('./main')(app);
     require('./masonry')(app);
     require('./nav')(app);
+    require('./post')(app);
     require('./sidenav')(app);
     // inject:end
 };
