@@ -99,7 +99,18 @@
     "ngMaterial": "./bower_components/angular-material/angular-material.min.js",
     "angularfire": "./bower_components/angularfire/dist/angularfire.min.js",
     "firebase": "./bower_components/firebase/firebase.js",
-    "angular-youtube-mb": "./bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"
+    "angular-masonry": "./bower_components/angular-masonry/angular-masonry.js",
+    "angular-youtube-mb": "./bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js",
+    "masonry": "./bower_components/masonry/dist/masonry.pkgd.min.js",
+    "jquery": "./bower_components/jquery/dist/jquery.min.js",
+    "imagesloaded": "./bower_components/imagesloaded/imagesloaded.pkgd.min.js",
+    "get-size": "./bower_components/get-size/get-size.js",
+    "outlayer": "./bower_components/outlayer/outlayer.js",
+    "get-style-property": "./bower_components/get-style-property/get-style-property.js",
+    "doc-ready": "./bower_components/doc-ready/doc-ready.js",
+    "eventEmitter": "./bower_components/eventEmitter/EventEmitter.min.js",
+    "eventie": "./bower_components/eventie/eventie.js",
+    "matches-selector": "./bower_components/matches-selector/matches-selector.js"
   },
   "browserify": {
     "transform": [
@@ -148,6 +159,53 @@
       "depends": [
         "angular",
         "firebase"
+      ]
+    },
+    "angular-masonry": {
+      "exports": "angular-masonry",
+      "depends": [
+        "masonry",
+        "angular",
+        "jquery",
+        "imagesloaded"
+      ]
+
+    },
+    "masonry": {
+      "exports": "masonry",
+      "depends": [
+        "get-size",
+        "outlayer"
+      ]
+    },
+    "imagesloaded": {
+      "exports": "imagesloaded",
+      "depends": [
+        "eventEmitter",
+        "eventie"
+      ]
+    },
+    "get-size": {
+      "exports": "get-size",
+      "depends": [
+        "get-style-property"
+      ]
+    },
+    "outlayer": {
+      "exports": "outlayer",
+      "depends": [
+        "doc-ready",
+        "eventEmitter",
+        "eventie",
+        "get-size",
+        "get-style-property",
+        "matches-selector"
+      ]
+    },
+    "doc-ready": {
+      "exports": "doc-ready",
+      "depends": [
+        "eventie"
       ]
     }
   }
