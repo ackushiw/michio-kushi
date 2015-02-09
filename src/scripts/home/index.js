@@ -3,6 +3,7 @@ require('angular-ui-router');
 require('ngMaterial');
 require('angularfire');
 require('angular-youtube-mb');
+require('angular-embedly';)
 
 var modulename = 'home';
 
@@ -11,7 +12,7 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'ngMaterial', 'firebase', 'youtube-embed']);
+  var app = angular.module(fullname, ['ui.router', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly']);
   // inject:folders start
   require('./controllers')(app);
   require('./services')(app);
@@ -41,6 +42,9 @@ module.exports = function(namespace) {
       .primaryPalette('cyan')
       .accentPalette('orange');
   }]);
+  app.config(['embedlyServiceProvider', function(embedlyServiceProvider) {
+    embedlyServiceProvider.setKey('8d5fa3afe41a41d392b52af11adafbac');
+  }])
 
   return app;
 };
