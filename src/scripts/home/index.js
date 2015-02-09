@@ -3,7 +3,7 @@ require('angular-ui-router');
 require('ngMaterial');
 require('angularfire');
 require('angular-youtube-mb');
-require('angular-embedly';)
+require('angular-embedly');
 
 var modulename = 'home';
 

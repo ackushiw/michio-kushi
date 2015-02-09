@@ -70,6 +70,11 @@
           <label>News Article Url</label>
           <input ng-model="createCtrl.entry.article">
         </md-input-container>
+        <md-card>
+          <em-embed urlsearch="{{createCtrl.entry.article}}">
+          </em-embed>
+        </md-card>
+
       </md-item-content>
     </md-item>
   </md-list>
