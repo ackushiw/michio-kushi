@@ -21,10 +21,18 @@
             </md-button>
           </div>
         </md-toolbar>
-        <img src="images/kushi-crest.png" ng-if="!entry.video">
-        <div ng-if="entry.video" class="video-frame">
+        <md-content style="width:100%;">
+          <img src="images/kushi-crest.png" ng-if="!entry.video">
+          <div class="video-frame">
+
+            <em-embed urlsearch="{{entry.video}}" ng-init="msnryCtrl.reload()">
+            </em-embed>
+          </div>
+        </md-content>
+
+        <!-- <div ng-if="entry.video" class="video-frame">
           <youtube-video video-url="entry.video" player-width="'100%'" player-height="'100%'" ng-init="msnryCtrl.reload()"></youtube-video>
-        </div>
+        </div> -->
         <md-toolbar>
           <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
             <md-button aria-label="bottom toolbar button" ng-click=""><i class="mdi mdi-lg mdi-tag"></i>

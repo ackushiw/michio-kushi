@@ -60,7 +60,8 @@
     </md-item>
     <md-item ng-if="createCtrl.entry.video">
       <md-item-content>
-        <youtube-video video-url="createCtrl.entry.video"></youtube-video>
+        <em-embed urlsearch="{{createCtrl.entry.video}}">
+        </em-embed>
       </md-item-content>
     </md-item>
 
