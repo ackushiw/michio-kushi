@@ -1,6 +1,14 @@
 //background-color
-md-content.md-default-theme {
-  //background-color: #37474f;
+$default-background-dark: #424242;
+body {
+  background-color: $default-background-dark;
+}
+md-content.md-default-theme.dark {
+  background-color: $default-background-dark;
+}
+md-card {
+  background-color: #fff;
+  overflow: hidden;
 }
 //fonts
 body,
