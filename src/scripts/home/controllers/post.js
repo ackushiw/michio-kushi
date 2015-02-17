@@ -41,9 +41,38 @@ module.exports = function(app) {
 
     function urlExtract(url) {
       console.log(embedlyService);
-      embedlyService.extract(url).then(function(data) {
-        console.log('data', data);
-        vm.articleData = data;
+      embedlyService.extract(url).then(function(embedlyData) {
+        console.log('data', embedlyData);
+        vm.articleData = embedlyData;
+        vm.entry = {
+          title: embedlyData.data.title || null,
+          description: embedlyData.data.description || null,
+          author: {
+            name: embedlyData.data.authors[0].name || null,
+            url: embedlyData.data.authors[0].url || null
+          },
+          url: embedlyData.data.url || null,
+          favicon_url: embedlyData.data.favicon_url || null,
+          mainImage: {
+            url: embedlyData.data.images[0].url || null,
+            height: embedlyData.data.images[0].height || null,
+            width: embedlyData.data.images[0].width || null
+          },
+          media: {
+            duration: embedlyData.data.media.duration || null,
+            height: embedlyData.data.media.height || null,
+            html: embedlyData.data.media.html || null,
+            type: embedlyData.data.media.type || null,
+            width: embedlyData.data.media.width || null
+          },
+          provider_name: embedlyData.data.provider_name || null,
+          published: embedlyData.data.published || null
+        };
+        if(vm.entry.media.html) {
+          vm.entry.mediaEmbed = embedlyData.data.media.type || true;
+        } else {
+          vm.entry.mediaEmbed = false;
+        }
       }, function(error) {
         console.log('Error', error);
         vm.articleData = error;

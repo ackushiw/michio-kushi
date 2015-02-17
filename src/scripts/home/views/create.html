@@ -15,92 +15,126 @@
 
 </md-toolbar>
 
-<md-content class="md-padding" layout="column">
+<md-content class="md-padding" layout-fill layout="column" layout-gt-md="row">
 
   <h1>{{createCtrl.currentPost}}</h1>
-  <md-list>
-    <md-item>
-      <md-item-content flex>
-        <h3 flex>
-          <md-input-container flex>
-            <label>Title</label>
-            <input type="text" ng-model="createCtrl.entry.title" flex>
-          </md-input-container>
-        </h3>
+  <md-card flex>
+    <md-content class="md-padding">
+      <md-list layout="column" flex>
+        <md-item>
+          <md-item-content>
+            <md-input-container flex>
+              <label>News Article Url</label>
+              <input ng-model="createCtrl.entry.url" type="url" ng-change="createCtrl.processUrl(createCtrl.entry.url)">
+            </md-input-container>
 
-      </md-item-content>
-    </md-item>
-    <md-item>
-      <md-item-content>
-        <md-input-container flex>
-          <label>Story</label>
-          <textarea ng-model="createCtrl.entry.story">
-          </textarea>
-        </md-input-container>
-      </md-item-content>
-    </md-item>
-    <md-item>
-      <md-item-content>
-        <md-input-container flex>
-          <label>Image Url</label>
-          <input ng-model="createCtrl.entry.image">
-        </md-input-container>
-      </md-item-content>
-    </md-item>
-    <md-item ng-if="createCtrl.entry.image">
-      <md-item-content>
-        <md-input-container flex>
-          <img ng-src="{{createCtrl.entry.image}}">
-        </md-input-container>
-      </md-item-content>
-    </md-item>
-    <md-item>
-      <md-item-content>
-        <md-input-container flex>
-          <label>Video Url</label>
-          <input ng-model="createCtrl.entry.video">
-        </md-input-container>
-      </md-item-content>
-    </md-item>
-    <md-item ng-if="createCtrl.entry.video">
-      <md-item-content>
-        <em-embed urlsearch="{{createCtrl.entry.video}}">
-        </em-embed>
-      </md-item-content>
-    </md-item>
+          </md-item-content>
+        </md-item>
 
-    <md-item>
-      <md-item-content>
-        <md-input-container flex>
-          <label>News Article Url</label>
-          <input ng-model="createCtrl.entry.article">
-        </md-input-container>
-        <md-button aria-label="get article data" ng-click="createCtrl.processUrl(createCtrl.entry.article)">get url</md-button>
+        <md-item>
+          <md-item-content flex>
+            <h3 flex>
+              <md-input-container flex>
+                <label>Title</label>
+                <input type="text" ng-model="createCtrl.entry.title" flex>
+              </md-input-container>
+            </h3>
 
-      </md-item-content>
-    </md-item>
-    <md-item>
-      <md-item-content>
-        <md-card ng-if="createCtrl.articleData">
+          </md-item-content>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-input-container flex>
+              <label>Description</label>
+              <textarea ng-model="createCtrl.entry.description">
+              </textarea>
+            </md-input-container>
+          </md-item-content>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-input-container flex>
+              <label>Story</label>
+              <textarea ng-model="createCtrl.entry.story">
+              </textarea>
+            </md-input-container>
+          </md-item-content>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-input-container flex>
+              <label>Image Url</label>
+              <input ng-model="createCtrl.entry.image">
+            </md-input-container>
+          </md-item-content>
+        </md-item>
+        <md-item ng-if="createCtrl.entry.image">
+          <md-item-content>
+            <md-input-container flex>
+              <img ng-src="{{createCtrl.entry.image}}">
+            </md-input-container>
+          </md-item-content>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <md-input-container flex>
+              <label>Video Url</label>
+              <input ng-model="createCtrl.entry.video">
+            </md-input-container>
+          </md-item-content>
+        </md-item>
+        <md-item ng-if="createCtrl.entry.video">
+          <md-item-content>
+            <em-embed urlsearch="{{createCtrl.entry.video}}">
+            </em-embed>
+          </md-item-content>
+        </md-item>
 
-          <img ng-src="{{createCtrl.articleData.data.images[0].url}}" alt="header image">
-          <md-content class="md-padding">
-            <a ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="space-between center">
-              <h1 flex>{{createCtrl.articleData.data.title}}</h1>
-              <img src="" alt="url icon" ng-src="{{createCtrl.articleData.data.favicon_url}}" height="50" width="50" style="width:50px;">
+      </md-list>
+      <div layout="row ">
+        <span flex></span>
+        <md-button aria-label="save " class="md-raised md-primary " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
+      </div>
+    </md-content>
+  </md-card>
+  <md-card ng-if="createCtrl.entry" flex flex-gt-md="66">
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <md-button aria-label="toolbar button" ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="center center">
+          <img src="" alt="url icon" ng-src="{{createCtrl.articleData.data.favicon_url}}" height="20" width="20" style="width:20px;">
 
-            </a>
-            <p>
-              {{createCtrl.articleData.data.description}}
-            </p>
-            <span ng-repeat="keyword in createCtrl.articleData.data.keywords">{{keyword.name}}
-            </span>
-          </md-content>
+        </md-button>
+        <h1>{{createCtrl.articleData.data.title}}</h1>
 
-        </md-card>
-      </md-item-content>
-    </md-item>
-  </md-list>
+        <span flex></span>
+        <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-share-variant"></i>
+        </md-button>
+        <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-fullscreen"></i>
+        </md-button>
+        <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-dots-vertical"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <img ng-src="{{createCtrl.articleData.data.images[0].url}}" alt="header image" ng-if="!createCtrl.entry.mediaEmbed">
+    <div ng-bind-html="createCtrl.entry.media.html">
+
+    </div>
+    <em-embed urlsearch="{{createCtrl.articleData.data.url}}">
+    </em-embed>
+    <md-content class="md-padding">
+      <a ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="space-between center">
+        <h1 flex>{{createCtrl.articleData.data.title}}</h1>
+
+      </a>
+      <p>
+        {{createCtrl.articleData.data.description}}
+      </p>
+      <span ng-repeat="keyword in createCtrl.articleData.data.keywords">{{keyword.name}}
+      </span>
+    </md-content>
+
+  </md-card>
 
   <!-- <div class=" tag-editor " ng-class="{active:focus} " ng-init="focus=f alse " ng-click="setFocus=t rue ">
     <div class="tag-draft ">
@@ -115,10 +149,5 @@
       <span class="tag " ng-repeat="tag in suggestions | limitTo:4 " ng-mousedown="add(tag.id, tag.name) ">{{tag.name}}</span>
     </div>
   </div> -->
-
-  <div layout="row ">
-    <span flex></span>
-    <md-button aria-label="save " class="md-raised md-primary " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
-  </div>
 
 </md-content>

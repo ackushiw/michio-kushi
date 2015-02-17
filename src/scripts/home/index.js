@@ -1,5 +1,6 @@
 'use strict';
 require('angular-ui-router');
+require('angular-sanitize');
 require('ngMaterial');
 require('angularfire');
 require('angular-youtube-mb');
@@ -13,9 +14,10 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly']);
+  var app = angular.module(fullname, ['ui.router', 'ngSanitize', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly']);
   // inject:folders start
   require('./controllers')(app);
+  require('./directives')(app);
   require('./services')(app);
   // inject:folders end
 
