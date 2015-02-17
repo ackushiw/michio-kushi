@@ -19,7 +19,8 @@
     "hammerjs": "~2.0.4",
     "mdi": "master",
     "angular-youtube-mb": "~0.1.6",
-    "angular-embedly": "~0.0.6"
+    "angular-embedly": "~0.0.6",
+    "angular-locker": "~1.2.0"
   },
   "resolutions": {
     "angular": "1.3.x"

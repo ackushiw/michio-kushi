@@ -75,32 +75,50 @@
           <label>News Article Url</label>
           <input ng-model="createCtrl.entry.article">
         </md-input-container>
-        <md-card>
-          <em-embed urlsearch="{{createCtrl.entry.article}}">
-          </em-embed>
-        </md-card>
+        <md-button aria-label="get article data" ng-click="createCtrl.processUrl(createCtrl.entry.article)">get url</md-button>
 
+      </md-item-content>
+    </md-item>
+    <md-item>
+      <md-item-content>
+        <md-card ng-if="createCtrl.articleData">
+
+          <img ng-src="{{createCtrl.articleData.data.images[0].url}}" alt="header image">
+          <md-content class="md-padding">
+            <a ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="space-between center">
+              <h1 flex>{{createCtrl.articleData.data.title}}</h1>
+              <img src="" alt="url icon" ng-src="{{createCtrl.articleData.data.favicon_url}}" height="50" width="50" style="width:50px;">
+
+            </a>
+            <p>
+              {{createCtrl.articleData.data.description}}
+            </p>
+            <span ng-repeat="keyword in createCtrl.articleData.data.keywords">{{keyword.name}}
+            </span>
+          </md-content>
+
+        </md-card>
       </md-item-content>
     </md-item>
   </md-list>
 
-  <!-- <div class="tag-editor" ng-class="{active:focus}" ng-init="focus = false" ng-click="setFocus = true">
-    <div class="tag-draft">
-      <span class="tag" ng-repeat="tag in tags">{{tag.name}}
-        <span class="remove" ng-click="remove($index)">x</span>
+  <!-- <div class=" tag-editor " ng-class="{active:focus} " ng-init="focus=f alse " ng-click="setFocus=t rue ">
+    <div class="tag-draft ">
+      <span class="tag " ng-repeat="tag in tags ">{{tag.name}}
+        <span class="remove " ng-click="remove($index) ">x</span>
       </span>
-      <input type="hidden" name="tags" value="{{tags | getCol:options.output}}" />
-      <input type="text" class="tag-input" placeholder="{{options.placeholder}}" ng-focus="focus = true" ng-blur="focus = false" focus-me="setFocus" ng-model="search" />
+      <input type="hidden " name="tags " value="{{tags | getCol:options.output}} " />
+      <input type="text " class="tag-input " placeholder="{{options.placeholder}} " ng-focus="focus=t rue " ng-blur="focus=f alse " focus-me="setFocus " ng-model="search " />
     </div>
-    <div class="tag-suggestions" ng-show="suggestions && focus">
-      <span class="title">Suggestions:</span>
-      <span class="tag" ng-repeat="tag in suggestions | limitTo:4" ng-mousedown="add(tag.id, tag.name)">{{tag.name}}</span>
+    <div class="tag-suggestions " ng-show="suggestions && focus ">
+      <span class="title ">Suggestions:</span>
+      <span class="tag " ng-repeat="tag in suggestions | limitTo:4 " ng-mousedown="add(tag.id, tag.name) ">{{tag.name}}</span>
     </div>
   </div> -->
 
-  <div layout="row">
+  <div layout="row ">
     <span flex></span>
-    <md-button aria-label="save" class="md-raised md-primary" ng-click="createCtrl.post(createCtrl.entry)">save</md-button>
+    <md-button aria-label="save " class="md-raised md-primary " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
   </div>
 
 </md-content>

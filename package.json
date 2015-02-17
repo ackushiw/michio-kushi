@@ -99,8 +99,9 @@
     "ngMaterial": "./bower_components/angular-material/angular-material.min.js",
     "angularfire": "./bower_components/angularfire/dist/angularfire.min.js",
     "firebase": "./bower_components/firebase/firebase.js",
-    "angular-embedly": "./bower_components/angular-embedly/angular-embedly.js",
-    "angular-youtube-mb": "./bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"
+    "angular-embedly": "./bower_components/angular-embedly/em-minified/angular-embedly.min.js",
+    "angular-youtube-mb": "./bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js",
+    "angular-locker": "./bower_components/angular-locker/dist/angular-locker.min.js"
   },
   "browserify": {
     "transform": [
@@ -149,6 +150,12 @@
       "depends": [
         "angular",
         "firebase"
+      ]
+    },
+    "angular-locker": {
+      "exports": "angular-locker",
+      "depends": [
+        "angular"
       ]
     }
   }
