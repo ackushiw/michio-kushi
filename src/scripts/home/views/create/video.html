@@ -44,22 +44,56 @@
 
     </md-content>
     <span flex></span>
-    <md-toobar>
-      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-        <md-button aria-label="create extras" ng-click=""><i class="mdi mdi-lg mdi-tag"></i>
-        </md-button>
-        <md-button aria-label="create extras" ng-click=""><i class="mdi mdi-lg mdi-clock"></i>
-        </md-button>
-        <md-button aria-label="create extras" ng-click=""><i class="mdi mdi-lg mdi-account-multiple"></i>
-        </md-button>
-        <md-button aria-label="create extras" ng-click="" hide><i class="mdi mdi-lg mdi-map-marker"></i>
-        </md-button>
-        <md-button aria-label="create extras" ng-click=""><i class="mdi mdi-lg mdi-map-marker"></i>
-        </md-button>
-        <span flex flex-gt-md="33"></span>
-        <md-button aria-label="save " class="md-raised md-primary " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
-      </div>
-    </md-toobar>
+
+    <md-tabs>
+      <md-tab>
+        <md-tab-label><i class="mdi mdi-lg mdi-tag"></i>
+        </md-tab-label>
+        <div>
+          <md-content class="md-padding">
+            <h1>Tags</h1>
+          </md-content>
+        </div>
+      </md-tab>
+      <md-tab>
+        <md-tab-label><i class="mdi mdi-lg mdi-clock"></i>
+        </md-tab-label>
+        <div>
+          <md-content class="md-padding">
+            <h1>Time</h1>
+          </md-content>
+        </div>
+      </md-tab>
+      <md-tab>
+        <md-tab-label><i class="mdi mdi-lg mdi-account-multiple"></i>
+        </md-tab-label>
+        <div>
+          <md-content class="md-padding">
+            <h1>People</h1>
+          </md-content>
+        </div>
+      </md-tab>
+      <md-tab>
+        <md-tab-label><i class="mdi mdi-lg mdi-map-marker"></i>
+        </md-tab-label>
+        <div>
+          <md-content class="md-padding">
+            <h1>Location</h1>
+          </md-content>
+        </div>
+      </md-tab>
+      <md-tab>
+        <md-tab-label><i class="mdi mdi-lg mdi-clock"></i>
+        </md-tab-label>
+        <div>
+          <md-content class="md-padding">
+            <h1>Time</h1>
+          </md-content>
+        </div>
+      </md-tab>
+    </md-tabs>
+
+    <md-button aria-label="save " class="md-raised md-primary " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
   </md-card>
   <span ng-if="!createCtrl.entry" flex-gt-md="33" hide-sm hide-md></span>
   <md-card ng-if="createCtrl.entry" flex flex-gt-md="66">
