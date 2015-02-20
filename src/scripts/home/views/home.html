@@ -1,6 +1,6 @@
 <section layout="row" layout-fill class="group">
   <section layout="column" layout-fill>
-    <md-toolbar ng-controller="main.home.nav as navCtrl" ng-class="{fixed: scrollUp}">
+    <md-toolbar ng-controller="main.home.nav as navCtrl" ng-class="{fixed: scrollUp}" md-scroll-shrink>
       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
         <div layout="row" class="nav-bar-title" ng-class="{expanded: navCtrl.searchFocus}">
           <md-button aria-label="menu button" ng-click="navCtrl.test()">
@@ -34,7 +34,7 @@
         </section>
       </div>
     </md-toolbar>
-    <md-content>
+    <md-content layout-fill>
       <ui-view>
         <md-card flex="50">
           <img src="images/michio-poem.jpg" alt="Michio Kushi" flex>
@@ -44,7 +44,7 @@
     </md-content>
 
   </section>
-  <md-sidenav style="position:fixed" class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" md-is-locked-open="$media('gt-md')">
     <section id="filter-menu" ng-controller="main.home.sidenav as filterCtrl">
 
       <md-toolbar>
