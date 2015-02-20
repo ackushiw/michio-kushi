@@ -39,6 +39,27 @@ module.exports = function(app) {
       vm.entry = null;
     };
 
+    vm.getImgurUrl = function(data) {
+      console.log('imgur test', data);
+      vm.entry = {
+        id: data.id || null,
+        title: data.title || null,
+        description: data.description || null,
+        url: data.link || null,
+        //favicon_url: data.favicon_url || null,
+        mainImage: {
+          url: data.link || null,
+          height: data.height || null,
+          width: data.width || null,
+          size: data.size || null,
+        },
+        type: data.type || null,
+        animated: data.animated || null,
+        //provider_name: data.provider_name || null,
+        published: data.datetime || null
+      };
+    };
+
     function urlExtract(url) {
       console.log(embedlyService);
       embedlyService.extract(url).then(function(embedlyData) {

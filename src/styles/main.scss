@@ -1,3 +1,6 @@
+//colors
+$dark-black: rgba(0,0,0,0.87);
+$light-black: rgba(0,0,0,0.54);
 //background-color
 $default-background-dark: #424242;
 body {
@@ -121,6 +124,17 @@ button.side-nav {
 //form-container
 h3.options-form {
   margin-top: 0;
+}
+//imgur-drop
+imgur-drop {
+  md-card {
+    background-color: #ddd;
+    padding: 50px;
+    border-style: dashed;
+    border-width: medium;
+    border-color: $light-black;
+    color: $light-black;
+  }
 }
 //masonry
 .grid-sizer.item {

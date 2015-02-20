@@ -14,6 +14,11 @@
 
           </md-item-content>
         </md-item>
+        <md-item>
+          <md-item-content>
+            <imgur-drop flex title="test title" imgurl="'placeholder'" imgpost="createCtrl.getImgurUrl(data)"></imgur-drop>
+          </md-item-content>
+        </md-item>
 
         <md-item>
           <md-item-content flex>
@@ -36,27 +41,7 @@
           </md-item-content>
         </md-item>
 
-        <md-item>
-          <md-item-content>
-            <md-input-container flex>
-              <label>Image Url</label>
-              <input ng-model="createCtrl.entry.image">
-            </md-input-container>
-          </md-item-content>
-        </md-item>
-        <md-item ng-if="createCtrl.entry.image">
-          <md-item-content>
-            <md-input-container flex>
-              <img ng-src="{{createCtrl.entry.image}}">
-            </md-input-container>
-          </md-item-content>
-        </md-item>
-
       </md-list>
-      <div layout="row ">
-        <span flex></span>
-        <md-button aria-label="save " class="md-raised md-primary " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
-      </div>
 
     </md-content>
     <span flex></span>
@@ -115,11 +100,8 @@
   <md-card ng-if="createCtrl.entry" flex flex-gt-md="66">
     <md-toolbar>
       <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-        <md-button aria-label="toolbar button" ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="center center">
-          <img src="" alt="url icon" ng-src="{{createCtrl.articleData.data.favicon_url}}" height="20" width="20" style="width:20px;">
 
-        </md-button>
-        <h1 hide-sm>{{createCtrl.articleData.data.title}}</h1>
+        <h1 hide-sm>{{createCtrl.entry.title}}</h1>
 
         <span flex></span>
         <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-share-variant"></i>
@@ -130,20 +112,11 @@
         </md-button>
       </div>
     </md-toolbar>
+    <img ng-src="{{createCtrl.entry.url}}" alt="imgur picture">
 
-    <img ng-src="{{createCtrl.articleData.data.images[0].url}}" alt="header image" ng-if="!createCtrl.entry.mediaEmbed">
-    <div ng-bind-html="createCtrl.entry.media.html">
-
-    </div>
-    <em-embed urlsearch="{{createCtrl.articleData.data.url}}">
-    </em-embed>
     <md-content class="md-padding">
-      <a ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="space-between center">
-        <h1 flex>{{createCtrl.articleData.data.title}}</h1>
-
-      </a>
       <p>
-        {{createCtrl.articleData.data.description}}
+        {{createCtrl.entry.description}}
       </p>
       <span ng-repeat="keyword in createCtrl.articleData.data.keywords">{{keyword.name}}
       </span>

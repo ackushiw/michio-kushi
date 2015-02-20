@@ -21,13 +21,15 @@
             </md-button>
           </div>
         </md-toolbar>
-        <md-content style="width:100%;">
-          <img src="images/kushi-crest.png" ng-if="!entry.video">
-          <div class="video-frame">
-
-            <em-embed urlsearch="{{entry.video}}" ng-init="msnryCtrl.reload()">
-            </em-embed>
-          </div>
+        <img ng-src="{{entry.mainImage.url}}" alt="header image" ng-if="entry.mainImage && !entry.media">
+        <div class="video-frame" ng-if="entry.media">
+          <em-embed urlsearch="{{entry.url}}" ng-init="msnryCtrl.reload()">
+          </em-embed>
+        </div>
+        <md-content class="md-padding">
+          <p>
+            {{entry.description}}
+          </p>
         </md-content>
 
         <!-- <div ng-if="entry.video" class="video-frame">

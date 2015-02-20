@@ -20,9 +20,11 @@
     "mdi": "master",
     "angular-youtube-mb": "~0.1.6",
     "angular-embedly": "~0.0.6",
-    "angular-locker": "~1.2.0"
+    "angular-locker": "~1.2.0",
+    "ng-imgur": "~0.1.4"
   },
   "resolutions": {
-    "angular": "1.3.x"
+    "angular": "1.3.12",
+    "angular-mocks": "1.3.12"
   }
 }
