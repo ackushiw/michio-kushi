@@ -63,7 +63,11 @@
         <div>
           <md-content class="md-padding">
             <h3 class="options-form">Time</h3>
-            <p>This for adding in times and dates</p>
+            <p>This for adding in times and dates {{createCtrl.entry.date}}</p>
+            <div layout="row" layout-sm="column">
+              <datepicker ng-model="createCtrl.testDate" min-date="minDate" show-weeks="true" class="well well-sm" flex></datepicker>
+            </div>
+
           </md-content>
         </div>
       </md-tab>
@@ -92,7 +96,7 @@
 
     </md-tabs>
 
-    <md-button aria-label="save " class="md-raised md-warn " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
+    <md-button aria-label="save" ng-disabled="!createCtrl.entry" class="md-raised md-warn " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
   </md-card>
   <span ng-if="!createCtrl.entry" flex-gt-md="33" hide-sm hide-md></span>
   <md-card ng-if="createCtrl.entry" flex flex-gt-md="66">
@@ -130,6 +134,9 @@
       </p>
       <span ng-repeat="keyword in createCtrl.articleData.data.keywords">{{keyword.name}}
       </span>
+      <pre>
+        {{createCtrl.entry}}
+      </pre>
     </md-content>
 
   </md-card>

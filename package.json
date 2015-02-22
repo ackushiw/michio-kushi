@@ -104,7 +104,9 @@
     "angular-locker": "./bower_components/angular-locker/dist/angular-locker.min.js",
     "ngImgur": "./bower_components/ng-imgur/dist/ng-imgur.js",
     "ngMaps": "./bower_components/angular-google-maps/dist/angular-google-maps.js",
-    "lodash": "./bower_components/lodash/dist/lodash.js"
+    "lodash": "./bower_components/lodash/dist/lodash.js",
+    "ngBootstrap": "./bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+    "datejs": "./bower_components/datejs/build/production/date.min.js"
   },
   "browserify": {
     "transform": [
@@ -173,6 +175,12 @@
       "depends": [
         "angular",
         "lodash"
+      ]
+    },
+    "ngBootstrap": {
+      "exports": "ngBootstrap",
+      "depends": [
+        "angular"
       ]
     }
   }

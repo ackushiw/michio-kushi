@@ -13,7 +13,8 @@ module.exports = function(app) {
     var activate = function() {
 
       //locker.put('test', vm.message);
-
+      require('datejs');
+      console.log(Date.today());
       vm.currentPost = null;
       vm.recover = editLast;
       vm.processUrl = urlExtract;
@@ -23,8 +24,11 @@ module.exports = function(app) {
 
     vm.post = function(data) {
       //locker.put('lastPost', data);
+
       var preparedData = data;
-      preparedData.firebaseTimeStamp = new Date();
+      preparedData.firebaseTimeStamp = Firebase.ServerValue.TIMESTAMP;
+      preparedData.date = Date.parse(vm.testDate) / 1000;
+
       //preparedData.$priority = data.title;
       console.log(preparedData);
       vm.sync = feedFactory.data();
@@ -68,10 +72,6 @@ module.exports = function(app) {
         vm.entry = {
           title: embedlyData.data.title || null,
           description: embedlyData.data.description || null,
-          author: {
-            name: embedlyData.data.authors[0].name || null,
-            url: embedlyData.data.authors[0].url || null
-          },
           url: embedlyData.data.url || null,
           favicon_url: embedlyData.data.favicon_url || null,
           mainImage: {

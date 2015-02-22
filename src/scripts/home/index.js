@@ -7,6 +7,7 @@ require('angular-youtube-mb');
 require('angular-embedly');
 require('ngImgur');
 //require('ngMaps');
+require('ngBootstrap');
 
 var modulename = 'home';
 
@@ -15,7 +16,7 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'ngSanitize', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly', 'ngImgur']);
+  var app = angular.module(fullname, ['ui.router', 'ngSanitize', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly', 'ngImgur', 'ui.bootstrap']);
   // inject:folders start
   require('./controllers')(app);
   require('./directives')(app);
