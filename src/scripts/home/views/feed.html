@@ -8,16 +8,21 @@
       </md-card>
 
     </div>
-    <div class="item" ng-class="{w2: entry.video}" ng-repeat="entry in feedCtrl.feed" ng-if="entry.title">
+    <div class="item" ng-class="{w2: entry.video}" ng-repeat="(key, entry) in feedCtrl.feed" ng-if="entry.title">
 
       <md-card ng-init="msnryCtrl.reload()">
         <md-toolbar>
           <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-            <h3>{{entry.title}}</h3>
-            <span flex></span>
-            <md-button aria-label="share" ng-click=""><i class="mdi mdi-share mdi-lg"></i>
+            <md-button aria-label="toolbar button" ng-href="{{entry.url}}" layout="row" layout-align="center center">
+              <img alt="url icon" ng-src="{{entry.favicon_url}}" height="20" width="20" style="width:20px;" ng-if="entry.favicon_url">
+
             </md-button>
-            <md-button aria-label="extras" ng-click=""><i class="mdi mdi-lg mdi-dots-vertical"></i>
+            <span flex></span>
+            <md-button aria-label="share" ng-href="{{entry.url}}"><i class="mdi mdi-share mdi-lg"></i>
+            </md-button>
+            <md-button aria-label="share" ng-href="{{entry.url}}"><i class="mdi mdi-share-variant mdi-lg"></i>
+            </md-button>
+            <md-button aria-label="extras" ng-click="feedCtrl.deleteEntry(key)"><i class="mdi mdi-lg mdi-dots-vertical"></i>
             </md-button>
           </div>
         </md-toolbar>
@@ -27,6 +32,7 @@
           </em-embed>
         </div>
         <md-content class="md-padding">
+          <h3>{{entry.title}}</h3>
           <p>
             {{entry.description}}
           </p>

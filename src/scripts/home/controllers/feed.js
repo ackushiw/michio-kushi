@@ -12,9 +12,15 @@ module.exports = function(app) {
       vm.data = feedFactory.data();
       console.log(vm.data);
       vm.feed = feedFactory.asArray();
+      vm.deleteEntry = firedataDelete;
 
     };
     activate();
+
+    function firedataDelete(key) {
+      console.log('removing', key);
+      feedFactory.arrayRemove(vm.feed, key);
+    }
   }
 
   controller.$inject = deps;

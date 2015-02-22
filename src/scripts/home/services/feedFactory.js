@@ -85,6 +85,8 @@ module.exports = function(app) {
     }
 
     function removeIndex(fireArray, index) {
+      console.log(fireArray);
+      console.log('test remove');
       return fireArray.$remove(index);
     }
 
