@@ -6,6 +6,7 @@ require('angularfire');
 require('angular-youtube-mb');
 require('angular-embedly');
 require('ngImgur');
+require('angular-google-maps');
 
 var modulename = 'home';
 
