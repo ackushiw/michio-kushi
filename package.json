@@ -101,11 +101,10 @@
     "firebase": "./bower_components/firebase/firebase.js",
     "angular-embedly": "./bower_components/angular-embedly/em-minified/angular-embedly.min.js",
     "angular-youtube-mb": "./bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js",
-    "angular-google-maps": "./bower_components/angular-google-maps/dist/angular-google-maps.js",
-    "lodash": "./bower_components/lodash/dist/lodash.min.js",
     "angular-locker": "./bower_components/angular-locker/dist/angular-locker.min.js",
     "ngImgur": "./bower_components/ng-imgur/dist/ng-imgur.js",
-    "sinon": "./bower_components/sinon/lib/sinon.js"
+    "ngMaps": "./bower_components/angular-google-maps/dist/angular-google-maps.js",
+    "lodash": "./bower_components/lodash/dist/lodash.js"
   },
   "browserify": {
     "transform": [
@@ -169,8 +168,8 @@
         "angular-mocks"
       ]
     },
-    "angular-google-maps": {
-      "exports": "angular-google-maps",
+    "ngMaps": {
+      "exports": "ngMaps",
       "depends": [
         "angular",
         "lodash"
