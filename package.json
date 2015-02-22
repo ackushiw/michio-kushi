@@ -166,8 +166,7 @@
     "ngImgur": {
       "exports": "ngImgur",
       "depends": [
-        "angular",
-        "angular-mocks"
+        "angular"
       ]
     },
     "ngMaps": {
