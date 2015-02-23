@@ -109,6 +109,19 @@ button.side-nav {
     color: rgba(0,0,0,0.87);
   }
 }
+//md-grid-list
+.tile-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
 //grid card
 #feed {
   md-card {

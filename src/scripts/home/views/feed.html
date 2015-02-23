@@ -1,11 +1,11 @@
-<md-content class="md-padding" style="background-color:red" layout=row>
+<md-content class="md-padding" style="background-color:red" layout-fill layout=row>
 
   <section id="feed" flex>
     <!--ng-controller="main.home.masonry as msnryCtrl" -->
 
     <div ng-controller="main.home.feed as feedCtrl" layout="row">
 
-      <md-card ng-repeat="(key, entry) in feedCtrl.feed" ng-if="$first" flex="50">
+      <md-card ng-repeat="(key, entry) in feedCtrl.feed" ng-if="$first" flex flex-gt-md="33">
         <div layout="column">
 
           <md-toolbar>
@@ -30,7 +30,7 @@
           </div>
           <md-content class="md-padding">
             <h3>{{entry.title}}</h3>
-            <p>
+            <p class="ellipsis">
               {{entry.description}}
             </p>
           </md-content>
@@ -49,7 +49,53 @@
           </md-toolbar>
         </div>
       </md-card>
-      <div layout="column">
+      <md-grid-list layout-fill md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
+        <md-grid-tile ng-repeat="(key, entry) in feedCtrl.feed" md-colspan-gt-sm="4" md-rowspan-gt-sm="5" ng-if="!$first">
+          <md-card class="tile-content" layout="column">
+
+            <md-toolbar>
+              <div class="md-toolbar-tools " layout="row " layout-align="space-between center ">
+                <md-button aria-label="toolbar button " ng-href="{{entry.url}} " layout="row " layout-align="center center ">
+                  <img class="img-responsive " alt="url icon " ng-src="{{entry.favicon_url}} " height="20 " width="20 " style="width:20px; " ng-if="entry.favicon_url ">
+
+                </md-button>
+                <span flex></span>
+                <md-button aria-label="share " ng-href="{{entry.url}} "><i class="mdi mdi-share mdi-lg "></i>
+                </md-button>
+                <md-button aria-label="share " ng-href="{{entry.url}} "><i class="mdi mdi-share-variant mdi-lg "></i>
+                </md-button>
+                <md-button aria-label="extras " ng-click="feedCtrl.deleteEntry(key) "><i class="mdi mdi-lg mdi-dots-vertical "></i>
+                </md-button>
+              </div>
+            </md-toolbar>
+            <img class="img-responsive " ng-src="{{entry.mainImage.url}} " alt="header image " ng-if="entry.mainImage && !entry.media ">
+            <div class="video-frame " ng-if="entry.media ">
+              <em-embed urlsearch="{{entry.url}} ">
+              </em-embed>
+            </div>
+            <md-content class="md-padding" flex>
+              <h3>{{entry.title}}</h3>
+              <p class="ellipsis">
+                {{entry.description}}
+              </p>
+            </md-content>
+            <md-toolbar>
+              <div class="md-toolbar-tools " layout="row " layout-align="space-between center ">
+                <md-button aria-label="bottom toolbar button " ng-click=" "><i class="mdi mdi-lg mdi-tag "></i>
+                </md-button>
+                <md-button aria-label="bottom toolbar button " ng-click=" "><i class="mdi mdi-lg mdi-comment-text-outline "></i>
+                </md-button>
+
+                <span flex></span>
+                <md-button aria-label="bottom toolbar button " ng-click=" "><i class="mdi mdi-lg mdi-heart-outline "></i>
+                </md-button>
+
+              </div>
+            </md-toolbar>
+          </md-card>
+        </md-grid-tile>
+      </md-grid-list>
+      <!-- <div layout="column">
         <md-card ng-repeat="(key, entry) in feedCtrl.feed" ng-if="!$first">
           <div layout="column">
 
@@ -96,8 +142,8 @@
         </md-card>
       </div>
 
-    </div>
-    <!-- <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }' ng-controller="main.home.feed as feedCtrl">
+    </div> -->
+      <!-- <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }' ng-controller="main.home.feed as feedCtrl">
     <!-- items -
     <div class="item grid-sizer"></div>
     <div class="item w2">
