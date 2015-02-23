@@ -34,6 +34,13 @@ p {
   font-weight: bold;
 }
 //**nav
+#main-nav {
+  md-tabs {
+    div.md-header-items-container {
+      height: 100%;
+    }
+  }
+}
 section#nav {
   padding: 16px;
   #options {

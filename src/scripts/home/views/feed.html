@@ -1,8 +1,11 @@
-<section id="feed">
-  <!--ng-controller="main.home.masonry as msnryCtrl" -->
-  <div ng-controller="main.home.feed as feedCtrl">
-    <md-list flex="50">
-      <md-item ng-repeat="(key, entry) in feedCtrl.feed">
+<md-content class="md-padding" style="background-color:red" layout=row>
+
+  <section id="feed" flex>
+    <!--ng-controller="main.home.masonry as msnryCtrl" -->
+
+    <div ng-controller="main.home.feed as feedCtrl" layout="row">
+
+      <md-card ng-repeat="(key, entry) in feedCtrl.feed" ng-if="$first" flex="50">
         <div layout="column">
 
           <md-toolbar>
@@ -45,28 +48,10 @@
             </div>
           </md-toolbar>
         </div>
-      </md-item>
-    </md-list>
-    <carousel interval="myInterval">
-      <slide ng-repeat="(key, entry) in feedCtrl.feed" active="entry.active">
-        <img class="img-responsive" ng-src="{{entry.mainImage.url}}" alt="header image" ng-if="entry.mainImage && !entry.media">
-        <div class="video-frame" ng-if="entry.media">
-          <em-embed urlsearch="{{entry.url}}">
-          </em-embed>
-        </div>
-        <md-content class="md-padding">
-          <h3>{{entry.title}}</h3>
-          <p>
-            {{entry.description}}
-          </p>
-        </md-content>
-      </slide>
-    </carousel>
-    <md-content class="md-padding">
-
-      <md-grid-list layout-fill md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
-        <md-grid-tile ng-repeat="(key, entry) in feedCtrl.feed" md-colspan-gt-sm="2" md-rowspan-gt-sm="3">
-          <div layout="column" layout-fill flex>
+      </md-card>
+      <div layout="column">
+        <md-card ng-repeat="(key, entry) in feedCtrl.feed" ng-if="!$first">
+          <div layout="column">
 
             <md-toolbar>
               <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
@@ -108,11 +93,11 @@
               </div>
             </md-toolbar>
           </div>
-        </md-grid-tile>
-      </md-grid-list>
-    </md-content>
-  </div>
-  <!-- <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }' ng-controller="main.home.feed as feedCtrl">
+        </md-card>
+      </div>
+
+    </div>
+    <!-- <div ng-init="feedCtrl.initMsnry()" class="masonry-container js-masonry" data-masonry-options='{"gutter": 0 }' ng-controller="main.home.feed as feedCtrl">
     <!-- items -
     <div class="item grid-sizer"></div>
     <div class="item w2">
@@ -172,4 +157,5 @@
   </div>
 
   </div> -->
-</section>
+  </section>
+</md-content>

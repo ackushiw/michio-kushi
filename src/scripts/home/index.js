@@ -25,15 +25,25 @@ module.exports = function(namespace) {
 
   app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise('/memories');
+      $urlRouterProvider.otherwise('/');
       $stateProvider.state('home', {
           url: '/',
+          template: require('./views/welcome.html')
+        }).state('home.donate', {
+          url: 'donate',
+          template: require('./views/donate.html')
+        })
+        .state('home.test', {
+          url: '/welcome',
           template: require('./views/home.html'),
           controller: fullname + '.main',
           controllerAs: 'homeCtrl'
         }).state('home.feed', {
           url: 'memories',
           template: require('./views/feed.html')
+        }).state('home.macro', {
+          url: 'test',
+          template: require('./views/feedtest.html')
         }).state('home.create', {
           url: 'create',
           template: require('./views/create.html'),

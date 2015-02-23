@@ -1,0 +1,30 @@
+<md-toolbar id="main-nav" style="background-color:rgba(200,200,200,0.7);" class="navbar navbar-fixed-top">
+  <div class="md-toolbar-tools conatiner-fluid" layout="row" layout-align="space-between end">
+    <md-tabs md-selected="data.tabActive">
+      <md-tab ui-sref="home" ng-click="data.tabActive = 0">
+        <md-tab-label>
+          <img src="images/kushi-crest.png" alt="kushi crest" height="30" width="30">
+        </md-tab-label>
+      </md-tab>
+      <md-tab ng-click="data.tabActive = 1">
+        <md-tab-label>News</md-tab-label>
+      </md-tab>
+      <md-tab ui-sref="home.feed" ng-click="data.tabActive = 2">
+        <md-tab-label>Memories</md-tab-label>
+      </md-tab>
+      <md-tab ng-click="data.tabActive = 3">
+        <md-tab-label ui-sref="home.donate">Donate</md-tab-label>
+      </md-tab>
+      <md-tab ui-sref="home.macro" ng-click="data.tabActive = 4">
+        <md-tab-label>Macrobiotics</md-tab-label>
+      </md-tab>
+    </md-tabs>
+  </div>
+</md-toolbar>
+<div layout-fill style="background-color:black;" layout="column" layout-align="center center" flex>
+
+  <ui-view style="padding-top: 64px" layout-fill>
+    <h1 style="color:white;">Michio Kushi</h1>
+  </ui-view>
+
+</div>
