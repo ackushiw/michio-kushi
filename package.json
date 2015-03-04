@@ -176,6 +176,9 @@
         "lodash"
       ]
     },
+    "lodash": {
+      "exports": "lodash"
+    },
     "ngBootstrap": {
       "exports": "ngBootstrap",
       "depends": [

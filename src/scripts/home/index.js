@@ -6,7 +6,7 @@ require('angularfire');
 require('angular-youtube-mb');
 require('angular-embedly');
 require('ngImgur');
-//require('ngMaps');
+require('ngMaps');
 require('ngBootstrap');
 
 var modulename = 'home';
@@ -16,7 +16,7 @@ module.exports = function(namespace) {
   var fullname = namespace + '.' + modulename;
 
   var angular = require('angular');
-  var app = angular.module(fullname, ['ui.router', 'ngSanitize', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly', 'ngImgur', 'ui.bootstrap']);
+  var app = angular.module(fullname, ['ui.router', 'ngSanitize', 'ngMaterial', 'firebase', 'youtube-embed', 'angular-embedly', 'ngImgur', 'uiGmapgoogle-maps', 'ui.bootstrap']);
   // inject:folders start
   require('./controllers')(app);
   require('./directives')(app);
@@ -87,6 +87,13 @@ module.exports = function(namespace) {
   }]);
   app.config(['embedlyServiceProvider', function(embedlyServiceProvider) {
     embedlyServiceProvider.setKey('8d5fa3afe41a41d392b52af11adafbac');
+  }]);
+  app.config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyC_dHAWi6wu6EBXtHvJjpjQxK89PXtDwQA',
+      v: '3.17',
+      libraries: 'geometry,visualization,places'
+    });
   }]);
 
   return app;

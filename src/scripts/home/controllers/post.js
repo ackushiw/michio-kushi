@@ -4,13 +4,87 @@ var controllername = 'post';
 module.exports = function(app) {
   /*jshint validthis: true */
 
-  var deps = [app.name + '.feedFactory', '$mdToast', 'embedlyService'];
+  var deps = [app.name + '.feedFactory', '$mdToast', 'embedlyService', 'uiGmapGoogleMapApi'];
 
-  function controller(feedFactory, $mdToast, embedlyService) {
+  function controller(feedFactory, $mdToast, embedlyService, uiGmapGoogleMapApi) {
     var vm = this;
 
     vm.message = 'Hello Post World';
+    vm.testInit = function() {
+      console.log(vm.message);
+    }
+    var searchEvents = {
+      places_changed: function(searchBox) {
+        var places = searchBox.getPlaces()
+
+        if(places.length == 0) {
+          return;
+        } else {
+          console.log(places);
+        }
+      }
+    }
+
+    vm.mapSearch = {
+      position: 'top-left',
+      template: 'searchbox.tpl.html',
+      options: {
+        autocomplete: true
+      },
+      events: searchEvents
+    };
+
+    vm.autocompleteResults = [{
+      defaultItem: {
+        description: 'default'
+      }
+    }];
     var activate = function() {
+      uiGmapGoogleMapApi.then(function(maps) {
+        vm.map = {
+          center: {
+            latitude: 0,
+            longitude: 0
+          },
+          zoom: 1
+        };
+        console.log(maps);
+        vm.mapAuto = new google.maps.places.AutocompleteService();
+        console.log(vm.mapAuto);
+        vm.queryGooglePlaces = function(query) {
+          console.log(query);
+          if(query) {
+            var queryObject = {
+              input: query
+            };
+            var results = vm.mapAuto.getPlacePredictions(queryObject, resultsCallback);
+            console.log(results);
+          } else {
+            return [];
+          }
+
+        };
+        vm.loadPlaceData = function() {
+          console.log('Result is: ');
+        };
+
+        function resultsCallback(array, status) {
+          console.log(array);
+          vm.autocompleteResults = array;
+          console.log(array[0].place_id);
+          vm.mapPlaces = new google.maps.places.PlacesService(maps.Map);
+          var details_id = array[0].place_id;
+          var details = vm.mapPlaces.getDetails(details_id, detailsCallback);
+
+          console.log(status);
+        }
+
+      });
+
+      function detailsCallback(result, status) {
+        console.log(result);
+        console.log(status);
+      }
 
       //locker.put('test', vm.message);
       require('datejs');

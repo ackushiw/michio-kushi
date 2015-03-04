@@ -83,55 +83,67 @@
         </div>
       </md-tab>
       <md-tab>
-        <md-tab-label><i class="mdi mdi-lg mdi-map-marker"></i>
+        <md-tab-label ng-click="createCtrl.testInit()"><i class="mdi mdi-lg mdi-map-marker"></i>
           <md-tooltip>Places</md-tooltip>
         </md-tab-label>
         <div>
           <md-content class="md-padding">
             <h3 class="options-form">Location</h3>
             <p>this is for adding a location to the post</p>
+            <md-autocomplete md-search-text="searchText" md-items="item in createCtrl.autocompleteResults" md-item-text="item.description" md-search-text-change="createCtrl.queryGooglePlaces(searchText)" md-selected-item-change="createCtrl.loadPlaceData(searchText)" placeholder="Search a place...">
+              <span md-highlight-text="searchText">{{item.description}}</span>
+            </md-autocomplete>
+            <br>
+            <ui-gmap-google-map center="createCtrl.map.center" zoom="createCtrl.map.zoom ">
+              <ui-gmap-search-box template="createCtrl.mapSearch.template" events="createCtrl.mapSearch.events" position="createCtrl.mapSearch.position" options="createCtrl.mapSearch.options">
+              </ui-gmap-search-box>
+
+            </ui-gmap-google-map>
+            <script type="text/ng-template" id="searchbox.tpl.html">
+              <input type="text" placeholder="Search Box" ng-model="createCtrl.searchResults">
+            </script>
           </md-content>
         </div>
       </md-tab>
     </md-tabs>
 
-    <md-button aria-label="save" ng-disabled="!createCtrl.entry" class="md-raised md-warn " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
+    <md-button aria-label="save " ng-disabled="!createCtrl.entry " class="md-raised md-warn " ng-click="createCtrl.post(createCtrl.entry) ">save</md-button>
   </md-card>
-  <span ng-if="!createCtrl.entry" flex-gt-md="33" hide-sm hide-md></span>
-  <md-card ng-if="createCtrl.entry" flex flex-gt-md="66">
+  <span ng-if="!createCtrl.entry " flex-gt-md="33 " hide-sm hide-md></span>
+  <md-card ng-if="createCtrl.entry " flex flex-gt-md="66 ">
     <md-toolbar>
-      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-        <md-button aria-label="toolbar button" ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="center center">
-          <img src="" alt="url icon" ng-src="{{createCtrl.articleData.data.favicon_url}}" height="20" width="20" style="width:20px;">
+      <div class="md-toolbar-tools " layout="row " layout-align="space-between center ">
+        <md-button aria-label="toolbar button " ng-href="{{createCtrl.articleData.data.url}} " layout="row " layout-align="center center ">
+          <img src=" " alt="url icon " ng-src="{{createCtrl.articleData.data.favicon_url}} " height="20 " width="20 " style="width:20px; ">
 
         </md-button>
         <h1 hide-sm>{{createCtrl.articleData.data.title}}</h1>
 
         <span flex></span>
-        <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-share-variant"></i>
+        <md-button aria-label="toolbar button " ng-click=" "><i class="mdi mdi-lg mdi-share-variant "></i>
         </md-button>
-        <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-fullscreen"></i>
+        <md-button aria-label="toolbar button " ng-click=" "><i class="mdi mdi-lg mdi-fullscreen "></i>
         </md-button>
-        <md-button aria-label="toolbar button" ng-click=""><i class="mdi mdi-lg mdi-dots-vertical"></i>
+        <md-button aria-label="toolbar button " ng-click=" "><i class="mdi mdi-lg mdi-dots-vertical "></i>
         </md-button>
       </div>
     </md-toolbar>
 
-    <img ng-src="{{createCtrl.articleData.data.images[0].url}}" alt="header image" ng-if="!createCtrl.entry.mediaEmbed">
-    <div ng-bind-html="createCtrl.entry.media.html">
+    <img ng-src="{{createCtrl.articleData.data.images[0].url}} " alt="header image " ng-if="!createCtrl.entry.mediaEmbed ">
+    <div ng-bind-html="createCtrl.entry.media.html ">
 
     </div>
-    <em-embed urlsearch="{{createCtrl.articleData.data.url}}">
+    <em-embed urlsearch="{{createCtrl.articleData.data.url}} ">
     </em-embed>
-    <md-content class="md-padding">
-      <a ng-href="{{createCtrl.articleData.data.url}}" layout="row" layout-align="space-between center">
+    <md-content class="md-padding ">
+      <a ng-href="{{createCtrl.articleData.data.url}} " layout="row " layout-align="space-between center ">
         <h1 flex>{{createCtrl.articleData.data.title}}</h1>
 
       </a>
       <p>
         {{createCtrl.articleData.data.description}}
       </p>
-      <span ng-repeat="keyword in createCtrl.articleData.data.keywords">{{keyword.name}}
+      <span ng-repeat="keyword in createCtrl.articleData.data.keywords ">{{keyword.name}}
       </span>
       <pre>
         {{createCtrl.entry}}
