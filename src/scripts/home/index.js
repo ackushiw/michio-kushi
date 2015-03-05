@@ -44,11 +44,29 @@ module.exports = function(namespace) {
         }).state('home.macro', {
           url: 'test',
           template: require('./views/feedtest.html')
+        }).state('home.login', {
+          url: 'login',
+          template: require('./views/login.html'),
+          controller: fullname + '.login',
+          controllerAs: 'loginCtrl'
         }).state('home.create', {
           url: 'create',
           template: require('./views/create.html'),
           controller: fullname + '.post',
-          controllerAs: 'createCtrl'
+          controllerAs: 'createCtrl',
+          resolve: {
+            currentAuth: ['$rootScope', '$firebaseAuth', '$state', function($rootScope, $firebaseAuth, $state) {
+              var auth = $rootScope.authObj.$requireAuth()
+              auth.then(function(result) {
+                console.log(result);
+              }).catch(function(error) {
+                console.log(error);
+                $state.go('home.login');
+              });
+              console.log(auth);
+              return auth;
+            }]
+          }
         }).state('home.create.story', {
           url: '/story',
           template: require('./views/create/story.html'),
@@ -94,6 +112,10 @@ module.exports = function(namespace) {
       v: '3.17',
       libraries: 'geometry,visualization,places'
     });
+  }]);
+  app.run(['$rootScope', '$firebaseAuth', function($rootScope, $firebaseAuth) {
+    var ref = new Firebase('https://fabula.firebaseio.com');
+    $rootScope.authObj = $firebaseAuth(ref);
   }]);
 
   return app;

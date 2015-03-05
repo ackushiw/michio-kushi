@@ -3,6 +3,7 @@
 module.exports = function(app) {
     // inject:start
     require('./feed')(app);
+    require('./login')(app);
     require('./main')(app);
     require('./masonry')(app);
     require('./nav')(app);
